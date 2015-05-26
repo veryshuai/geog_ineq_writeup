@@ -21,17 +21,17 @@
 \begin{document}
 \maketitle
 
-Inequality has long fascinated economists, but recently rising inequality has been a topic in public forums as well.  It is not every year that a 700-page collection of charts and academic theory on inequality is a New York Times bestseller.  In this paper, we add to this discussion by documenting some new facts about the interaction of geography with inequality, and developing a model which can rationalize what we find.  After estimating the model on American data, we will discuss the effect of changes in geography on inequality.  These changes might be a new highway, or population movement due to climate change.
+Inequality has long fascinated economists, and growing income inequality has been heatedly discussed in public forums recently.\footnote{It is not every year that a 700-page collection of charts and academic theory on inequality is a New York Times bestseller.}  In this paper, we add to this discussion by documenting some new facts about the interaction of geography with inequality, and developing a model which can rationalize what we find.  After estimating the model on American data, we will discuss the effect of changes in geography on inequality.  These changes might be a new highway, or population movement due to climate change.
 
 Our first empirical contribution is to document facts about inequality and geography.  We assign to each American city a measure of remoteness meant to capture its distance from all other cities.  We then show that this measure correlates negatively with the skill premium, the ratio of the mean wage of the highly educated to the mean wage of the less educated.  That is, highly educated workers make less relative to less educated workers in remote cities.  On the other hand, conditional on population and other controls, the more remote a city is, the higher its share of highly educated workers, which we call the college share.  As far as we know, our paper is the first to document these facts.
 
-Previous economic geography models on inequality have treated cities as isolated rooms.  Workers in a city can interact with each other, but there is no interaction between cities.  This literature, then, has no way to discuss the interaction of geography with inequality, since the location of a city relative to other cities is irrelevant.  In order to discuss geography, we borrow heavily from recent literature on domestic trade and the size and location of cities.
+At least since the development of new economic geography, economists have examined the role of trade costs in determining the location of manufacturing centers \textbf{CITE KRUGMAN,allen arkolakis}.  On the other hand, recent models of spatial inequality have treated cities as isolated.  Workers in a city can interact with each other, but there is no interaction between cities.  This literature, then, has no way to discuss the interaction of geography with inequality, since the geographic location of a city relative to other cities is irrelevant.  By including intra-city trade in an model of inequality, we bridge this gap in the literature.
 
-In our model, we have a continuum of locations, workers, and firms.  Workers come in two types, high and low-skilled, and each worker has an ideosyncratic utility from living in each location.  Workers decide where to live taking wages as given.  Firms take local wages as given, and produce a tradable good using high and low-skilled labor as inputs.  The sole difference between high and low-skill labor is that high-skill labor benefits from agglomeration, while low-skill labor does not.\footnote{We allow there to be a Hicks-neutral agglomeration force as well.}
+In our model, we have a continuum of locations, workers, and firms.  Workers come in two types, skilled and unskilled, and each worker has an ideosyncratic utility from living in each location.  A worker decides where to live taking wages as given.  A firm also takes local wages as given, and produces a tradable good using skilled and unskilled labor as inputs.  The sole difference between the two types of labor is that skill labor benefits from agglomeration, while unskilled labor does not.\footnote{We allow there to be a Hicks-neutral agglomeration force as well.}
 
-The key in our model is to generate skill premia which differ by location.  In particular, we want less remote cities to have higher skill premia.  Consider a city near other cities.  The access to cheap tradable goods makes this location attractive to live in.  This leads the city to have a relatively high population.  Through agglomeration forces, high-skill workers become relatively more productive.  Thus, a firm in this city chooses a relatively high share of high-skill workers.  The more high skill workers are attracted to the city, the more difficult it is to attract the marginal high-skilled worker, since she has a strong preference to live elsewhere.  In order to attract a marginal worker, firms must pay relatively high wages, and we get a skill-premium.
+The key in our model is to generate skill premia which differ by location.  In particular, we want less remote cities to have higher skill premia.  Consider a city near other cities.  The access to cheap tradable goods makes this location attractive to live in.  This leads the city to have a relatively high population.  Through agglomeration forces, skilled workers become relatively productive.  Thus, a firm in this city chooses a relatively high share of skilled workers as inputs.  The more skilled workers are attracted to the city, the more difficult it is to attract the marginal skilled worker, since she has a strong preference to live elsewhere.  A high skill premium is necessary in this city to increases the relative supply and decreases the relative demand for skilled workers.
 
-To clarify this mechanism, consider software engineers and gas station attendants.  There are more software engineers per gas station attendant in Silicon Valley than in Minneapolis.  This is because due to agglomeration effects software engineers are much more productive in Silicon Valley, but gas station attendents are almost the same productivity everywhere.  Thus, Silicon Valley demands relatively more software engineers.  In order to both increase Silicon Valley relative supply of software engineers and reduce relative demand, we need to make the software engineer wages in Silicon Valley relatively high.
+To clarify this mechanism, consider software engineers and gas station attendants.  There are more software engineers per gas station attendant in Silicon Valley than in Minneapolis.  Agglomeration effects make software engineers much more productive in Silicon Valley, but gas station attendents are almost the same productivity everywhere.  Thus, Silicon Valley demands relatively more software engineers.  In order to both increase Silicon Valley relative supply of software engineers and reduce relative demand, we need to make the software engineer wages in Silicon Valley relatively high compared with gas station attendants.
 
 The literature on the skill premium has found a number of patterns.  To the extent that we are able to measure the relevant quantities, all of these facts are consistent with our data.  The literature has shown convincingly that the skill premium is higher in cities with larger populations \citep{davis2012spatial}.  The relationship between the skill premium and city size has become stronger over time \citep{baum2013inequality, lindley2014spatial}.  In addition, larger cities have been shown to have a higher share of college-educated worker, another pattern which has strengthened over time \citep{moretti2008real, lindley2014spatial}.  Areas of denser economic activity have higher skill premiums \citep{combes2012sorting}.
 
@@ -174,269 +174,475 @@ An alternative method of controling for the age of workers is to limit our analy
 
 \section{Theory}
 
-In the last section, we presented evidence that geography plays a role in shaping the skill premium and college shares.  In this section we develop models to help us understand the patterns we found, in particular that the skill premium decreases with the remoteness of a location, while the college share increases.  First we show that if preferences are homothetic, in any spatial equilibrium model there will be no difference in the skill premium between locations.  We then show how a model with non-homothetic preferences is able to deliver varying skill premia.  Finally we discuss how such a model might be estimated.
+In the last section, we presented evidence that geography plays a role in shaping the skill premium and college shares.  In this section we develop an empirical model to help us understand the patterns we found, in particular that the skill premium decreases with the remoteness of a location, while the college share increases.  Next we discuss how such a model might be estimated.
 
-\subsection{No Skill Premia Variation with Homothetic Preferences}
+\subsection{Labor Supply}
 
-Workers have homothetic preferences of the form:
-
-\begin{equation}
-    U(\bm{c}) = u(\bm{c}) a \nonumber
-    \label{eq:homo}
-\end{equation}
-
-Subject to:
-
-\begin{equation}
-    w = \bm{p} \bm{c}  \nonumber
-    \label{eq:homobc}
-\end{equation}
-
-In the above preferences, $a$ is amenities, $\bm{c}$ is a vector of consumption, $\bm{p}$ is a vector of prices, and $w$ is the wage.  Because preferences are homothetic, indirect utility can be written: 
-
-\begin{equation}
-    U(\bm{p},w) = w f(\bm{p}) a \nonumber
-    \label{eq:homoin}
-\end{equation}
-
-The form of $f$ depends on the specific functional form of $u$.  Now suppose we have two locations, $1$ and $2$, and two types of workers $h$ and $l$.  Amenities, wages, and prices are all different in the two locations, and wages differ across types as well.  In a spatial equilibrium model with free movement between locations, welfare in any populated location must be equalized within a type.
-
-\begin{align}
-    w_{h,1} f(\bm{p}_{1}) a_{1} &= w_{h,2} f(\bm{p}_{2}) a_{2} \nonumber \\
-    w_{l,1} f(\bm{p}_{1}) a_{1} &= w_{l,2} f(\bm{p}_{2}) a_{2} \nonumber
-\end{align}
-
-Divinging the two welfare equalization conditions, we see that the skill premium will be the same in any location populated with both type of worker.
-
-\begin{equation}
-    \frac{w_{h,1}}{w_{l,1}} = \frac{w_{h,2}}{w_{l,2}} \nonumber
-\end{equation}
-
-The equalization of the skill premium does not depend on the production structure of the economy, or the geography between cities.  It also does not require that the share of types be the same in any two locations.
-
-\subsection{Non-homothetic preferences}
-
-We have shown that we need to use a non-homothetic utility function in our model if we want to capture the dependence of the skill premium on geography.  There are, of course, many different ways for preferences to be non-homothetic.  To guide our modeling, we examine household expenditure on housing.   Housing is a large share of household expenditure, and research on the welfare effects of trade barriers has focused on the housing stock, or at least some non-tradable consumption good in fixed supply \citep{helpman1998size,redding2008costs}.  We examine how the share of a household's expenditure on housing varies with income.  This relationship is sometimes called an Engel curve.
-
-\begin{figure}
-    \begin{center}
-        \includegraphics[width=4in]{pics/rent_shr_wage_scatter_00.png}
-    \end{center}
-    \caption{2000 American imputed annual rent over total expenditures}
-    \label{fig:wage_rent}
-\end{figure}
-
-If preferences were homothetic, we would expect income to be unrelated to the share of total expenditure spent on housing.  Figure \ref{fig:wage_rent} contains share of spending on housing over total spending created from the American Consumer Expenditure Survey.  The measure of housing spending is actual rent if available, and imputed rent for homeowners.  We see that as expenditure increases, the share of expenditure spent on housing decreases.  We use total expenditure rather than total income because the rich save more than the poor, so that spending as a share of income is decreasing in every category of spending.
-
-\subsubsection{Preferences and production technology}
-
-In order to capture the decreasing Engel curve, we use Stone-Geary preferences.  A worker needs to consume a certain amount of housing $k_0$ before he can enjoy any other consumption.  As above, there are two types of labor, high-skilled $H$ and low-skilled $L$, and it is convenient for us to assume that high-skill labor produces a tradeable good, while low-skill labor produces a local non-tradable.  A final consumer with budget $y$ in location $i$ maximizes welfare,
-
-\begin{eqnarray}
-	\max \limits_{q_H(s,i),~q_L(i),~z} ~
-	\left(\left[\int_S q_H(s,i)^{\frac{\sigma - 1}{\sigma}}~ ds\right]^{\frac{\sigma}{\sigma-1}}\right)^{\gamma_H} q_L(i)^{\gamma_L} (z-z_0)^{1-\gamma_H-\gamma_L} \nonumber
+We have a static model with a continuum of price-taking firms in each location, and two types of worker: skilled indexed by $H$, and unskilled indexed by $L$.  The utility of a worker in location $i$ is:
+\begin{eqnarray}\label{eq:utility}
+	Q(i) u(i) \epsilon(i)
 \end{eqnarray} 
-subject to
-\begin{eqnarray}
-	y = p_z(i) z + p_L(i)q_L(i) + \int_S p_H(s,i)q_H(s,i) ds  \nonumber
-\end{eqnarray}
-
-Here, $H$ and $L$ index goods produced by high- and low-skilled labor. $H$ is differentiated by location of production and is tradable, while $L$ is a nontradable bundle to be locally produced. $z$ is the consumption of local housing.  We currently do not have amenities here, but they would be straight-forward to add.
-
-Labor is the only factor of production, and define $A_H(i)$ to be the units a high-skilled worker produces in one hour.  We will call this the productivity of high-skilled labor in location $i$.  Let $w_H(i)$ the wage of high-skilled labor in location $i$, and $d(s,i) \geq 1$ be the iceberg trade costs of shipping an high-skill good from $s$ to $i$.  That is, in order to have one unit of the good arrive in $i$, a producer in $s$ needs to ship $d(s,i)$ units of the good.  We that markets are perfectly competitive, so that the price $p_H(s,i)$ of the good produced in $s$ and sold in location $i$ is $w_H(s)d(s,i)/A_H(s)$ Similarly define $A_L(i)$, $w_L(i)$, and $p_L(i)$. 
-
-\subsubsection{Optimal consumer expenditure}
-
-Given wages and productivities, optimal expenditures of a consumer in location $i$ with income $y$ are given as follows:
-\begin{eqnarray}
-	X_H(s,i;y) & = & \Big[ \frac{p_H(s,i)}{P_H(i)} \Big]^{1-\sigma} \gamma_H (y-p_z(i)z_0) \nonumber \\
-	X_L(i;y)   & = & \gamma_L (y-p_z(i)z_0) \nonumber \\
-	X_z(i;y)   & = & (1-\gamma_H-\gamma_L)(y-p_z(i) z_0)+p_z(i)z_0 \\
-    \label{eq:house_demand}
-\end{eqnarray}
-where the price index of the differentiated good is
-\begin{eqnarray}
-    \label{eq:nonhomo_price_index}
-	P_H(i) = \left[\int_S p_H(s,i)^{1-\sigma}~ ds\right]^{\frac{1}{1-\sigma}}
-\end{eqnarray} 
-We can now verify that the share of spending on housing is decreasing in income, and equal to $(1-\gamma_H-\gamma_L)+(\gamma_H+\gamma_L){p_z(i)z_0}/{y}$. 
-Indirect utility of a worker in location $i$ with income is $y$ is
-\begin{eqnarray}
-	W(i;y)  =  \frac{y-p_z(i)z_0}{P(i)} \nonumber
-\end{eqnarray}
-where the ideal price index is
+where $Q(i)$ is utility from tradeables, $u(i)$ is the utility from exogenous amenities, and $\epsilon(i)$ is a worker's exogenous preference for location $i$.  Tradeable goods are differentiated by the origin of production, and $q(j,i)$ is consumer's consumption in $i$ from goods originated in location $j$. The aggregator $Q(i)$ in the utility function with $\sigma>0$ the elasticity of substitution is:
 \[
-	P(i)  = \gamma_{0}
-	P_H(i)^{\gamma_H}p_L(i)^{\gamma_L}p_z(i)^{1-\gamma_H-\gamma_L},
+	Q(i) = \left[\int_J q(j,i)^{\frac{ \sigma - 1}{\sigma}}~ dj\right]^{\frac{\sigma}{\sigma-1}},
 \]
-with $\gamma_{0}=\gamma_H^{-\gamma_H} \gamma_L^{-\gamma_L}(1-\gamma_H-\gamma_L)^{-(1-\gamma_H-\gamma_L)}$.
-
-\subsubsection{Equilibrium Conditions}
-
-As is standard in the economic geography literature, we assume that workers are freely mobile between locations.  This implies that within each type welfare must be the same in any location.  Replace $y$ with $w_H(i)$ for high-skilled labor and $w_L(i)$ for low-skilled labor.  Welfare equalization implies that for all populated locations $i$, we have
-\begin{eqnarray}
-	W_L = \frac{w_L(i)-p_z(i)z_0}{P(i)} , ~ 	
-	W_H = \frac{w_H(i)-p_z(i)z_0}{P(i)}
-    \label{eq:weleq}
-\end{eqnarray}
-
-Next we have the market clearing conditions.  Let $N(i)$, $N_H(i)$ and $N_L(i)$ be measures of total, high- and low-skilled labor in location $i$.  $X_H(s,i)$, $X_L(i)$, $X_z(i)$ be aggregate spending in each location.  The supply of housing in each location is the same and equals $\bar{Z}$. Market clearing conditions for high-skilled labor, low-skilled labor, and housing are given by
-\begin{eqnarray}
-	(mcc_H) & & w_H(i) N_H(i) = \int_S X_H(i,s) ds  \nonumber \\
-	(mcc_L) & & w_L(i) N_L(i) = X_L(i) \nonumber \\
-	(mcc_z) & & p_z(i) \bar{Z} = X_z(i)  \nonumber
-\end{eqnarray}
-
-We have to take a stand on who receives the payments for local endowments. In each location $i$, there is a measure one of housing owners whose total income is $p_z(i) \bar{Z}$.  These capitalists do not participate in labor market, and only consuming what they earn by housing renting their housing to perfectly competitive housing firms.  Total population in $i$ is then $N(i)=N_H(i)+N_L(i)+1$, and total income, denoted by $Y(i)$, is given by
+We suppose that worker location prefrences $\epsilon(i)$ are independent across workers and locations, and have a Type II Extreme Value distribution,
 \[
-	Y(i) = w_H(i) N_H(i) + w_L(i) N_L(i) + p_z(i) \bar{Z}
+\Pr(\epsilon^h(i) \leq \epsilon) = \exp(-\epsilon^{-\theta})
 \]
+Workers are heterogeneous in terms of skill $s \in \{H,L\}$. A worker's wage in location $i$ is denoted by $w_s(i)$, and her budget constraint is 
+\begin{eqnarray}\label{eq:budget}
+	w_s(i) = \int_J p(j,i)q(j,i)~dj 
+\end{eqnarray}
+where $p(j,i)$ is price of good $j$ in destination $i$, and $J$ is the given set of locations.
 
-Define a distribution of economic activity to be a set of $w_H$, $w_L$, $N_H$, and $N_L$ with normalization $\int_S w_H(s)~ ds =1$. A distribution of economic activity is a spatial equilibrium if welfare is equalized across populated locations, goods markets clear in each location, and the sum of populations local populations is equal to exogenously given aggregates, $\int_S N_L(s) ~ds = \bar{N}_L$ and $\int_S N_H(s) ~ds = \bar{N}_H$.
-
-\subsubsection{Solving the model}
-
-We can reduce the model to two equilibrium conditions reminescent of those derived in \citet{allen2014trade}.  This is important, because having the equilibrium conditions in a similar form will allow us to use both the same existence and uniqueness results as that paper and also an iterative procedure for finding the equilibrium.\footnote{We won't be able to get a clean parameter condition for existance and uniqueness as in \citet{allen2014trade}, but we can numerically show uniqueness for a set of parameters.  Also, our estimation algorithm will have to be somewhat more involved.  More on both points later.}
-
-Our first equilibrium condition is:
-
-\begin{eqnarray}
-	& & N_H(i) w_H(i)^{\sigma}   = \nonumber \\
-	& & \int_S W_H^{1-\sigma} m(s)^{1-\sigma} d(i,s)^{1-\sigma} A_H(i)^{\sigma-1} g(s)^{\sigma-1} N_H(s) w_H(s)^{\sigma}~ds  \nonumber
-    \label{eq:equib1}
+An worker has two types of decision to make.  She decides where to live, and how much of each good to consume.  Given a choice of location, the second problem is standard.  A worker of type $s$ in location $i$ spends $x_s(j,i)$ on goods produced in $j$,
+\begin{eqnarray}\label{eq:x_s}
+	x_s(j,i) & \equiv & p(j,i) q_s(j,i) = \Big[ \frac{p(j,i)}{P(i)} \Big]^{1-\sigma} w_s
+\end{eqnarray}
+where $P(i)$ is the CES price index,
+\begin{eqnarray}\label{eq:price_index}
+	P(i) = \left[\int_J p(j,i)^{1-\sigma}~ dj\right]^{\frac{1}{1-\sigma}}
 \end{eqnarray}
 
-And our second is:
-
-\begin{eqnarray}
- 	w_H(i)^{1-\sigma} = \int_S W_H^{1-\sigma} m(i)^{1-\sigma} d(s,i)^{1-\sigma} A_H(s)^{\sigma-1} c(i)^{\sigma-1}  	w_H(s)^{1-\sigma} \nonumber
- 	~ ds
-    \label{eq:equib2}
+The second decision a worker makes is where to live.  In order to characterize this decision, we need to introduce congestion forces.  We model them as in \textbf{allen arkolakis}:
+\begin{eqnarray}\label{eq:congestion}
+u(i) = \bar{u}(i)  n(i)^{\gamma}
 \end{eqnarray}
-
-The only difference between our conditions, and those in \citet{allen2014trade} are the presence of the functions $m$ and $g$.  These are given below:
-
-\begin{eqnarray}
-    \label{eq:end1}
-	m(i)  & \equiv & \frac{P(i)}{P_H(i)} \\
-    \label{eq:end2}
-	g(s) & \equiv & 1- \frac{(1-\gamma_H -\gamma_L)N_H(s)z_0}{\gamma_H (\bar{Z}-N(s)z_0)}
+Here, $n(i)$ is total population in location $i$ and $\gamma<0$ is the degree of congestion effect. This specification is isomorphic to a setting where preferences are Cobb-Douglas between tradeables and housing in which housing supply is inelastic.
+A worker with skill level $s$ faces the following discrete choice problem over locations:
+\begin{eqnarray} 
+\max_{i \in J}~ \frac{w_s(i)}{P(i)}u(i) \epsilon(i)  \nonumber
 \end{eqnarray}
-
-These additions are not trivial, as they involve endogenous objects -- prices in the case of \eqref{eq:end1} and populations in the case of \eqref{eq:end2}.  Prices $P(i)$ and $P_H(i)$ and total populations $N(i)$ appear nowhere else in the equilibrium conditions.  We have yet to simulate this model, but to solve for equilibrium will conceptually involve a traditional iteration on a fixed point -- taking $c$ and $m$ as given, solve the model, and then use the model's solution to update $c$ and $m$ and resolve, etc.
-
-\subsubsection{Discussion}
-
-We have developed an empirical model of geography and non-homothetic preferences.  Before taking it to the data, however, we can learn something from simply examining the relationships in the model.  One key empirical feature we want to match is the relationship between remoteness/population and the skill premium.  From \eqref{eq:weleq}, we get the following:
-
-\begin{equation}
-	\frac{W_H}{W_L} = \frac{w_H(i)-p_z(i)z_0}{w_L(i)-p_z(i)z_0}
-    \label{eq:exam_prem}
-\end{equation}
-
-A side note here is that we have also tried a totally different set of non-homothetic preferences similar to those in \citet{fajgelbaum2011income}, and in that version we get a very similar relationship.  Consider raising wages for low and high skill workers proportionally.  This will cause the right-hand side of \eqref{eq:exam_prem} to decrease.  Since we expect agglomeration to raise nominal wages in larger, less remote cities, this force makes the wage premium covary positively with population.  On the other hand, suppose that we raise the price of housing.  This causes the right-hand side of \eqref{eq:exam_prem} to increase, which pushes the wage premium to be lower in cities with higher housing prices.  Since we expect larger and less remote cities to have higher housing prices, this force makes the wage premium vary negatively with population.  Since we know the skill premium is higher in larger cities, loosely, we expect agglomeration to dominate congestion.
-
-There are several drawbacks to this non-homothetic model.  The most important is the presence of endogenous variables in the equilibrium condition, which complicates numerical solution.  While this is unfortunate, it seems that this will likely be the case in any non-homothetic version of the model, which is necessary to drive differences in wage premia across cities.  A second drawback is the asymmetry and rigidity of the production function.  High skill workers make tradables, while low skill workers make goods that cannot be traded at all.  The factors are specific to their own good, and cannot be substituted.  In the next section, we present an empirical homothetic model which will not contain any endogenous variables in the equilibrium condition, and will have a more natural production function combining substitutable high and low-skill goods into a single final consumption good. 
-
-\subsection{Homothetic preferences with CES production}
-
-In this section we present a empirical model with homothetic preferences, but which has several attractive features.  First of all, the model will be easily estimable.  We have already written code to simulate the model, and we will present some lessons we have already learned from calibration.  A second attractive feature is a production function which allows for substitution between high and low-skill labor in the production of a single final consumption good.
-
-\subsubsection{Preferences and production technology}
-A final consumer of type $\tau$ in location $i$ maximizes welfare,
+Using the properties of the Type-II extreme value distribution, within skill $s$ the ratio of labor supply equals
 \begin{eqnarray}
-	\max \limits_{q_{\tau}(s,i)} ~
-	\left[\int_S q_{\tau}(s,i)^{\frac{\sigma - 1}{\sigma}}~ ds\right]^{\frac{\sigma}{\sigma-1}} u(i) \nonumber
+	\frac{n_s(i)}{n_s(j)} = 
+	\Big[
+	\frac{w_s(i)u(i)/P(i)}
+	{w_s(j)u(j) /P(j)}
+	\Big]^{\theta} \nonumber  
 \end{eqnarray} 
-subject to
-\begin{eqnarray}
-	w_{\tau} = \int_S p(s,i)q_\tau(s,i) ds  \nonumber
-\end{eqnarray}
-Goods are differentiated by the origin of production. $q_{\tau}(s,i)$ is consumer $\tau$'s consumption in $i$ from goods originated in location $s$. As we will simulate this model, we include amenities as well, which we abstracted from in the non-homothetic model above.  $u(i)$ is the utility from amenities in location $i$.
+where $n_s(i)$ is population of workers with skill $s$ in location $i$.
+The elasticity of relative labor supply to relative wages is:
+\[
+\frac{ \partial \Big(n_s(i)/n_s(j)\Big) \Big/
+\Big(n_s(i)/n_s(j)\Big)}
+{\partial \Big(w_s(i)/w_s(j)\Big) \Big/
+\Big(w_s(i)/w_s(j)\Big) } = \theta
+\]
+The variance of $\epsilon^h(i)$ is a decreasing function of $\theta$: the larger $\theta$, the smaller the variance. A larger $\theta$ implies that individual unobserved preferences for location are less important, and so workers are more willing to move in response to differences in wages, prices, or amenities ---supply curve is relatively flat.
+When $\theta$ is smaller, the variance is large, so supply curve is relatively steep: A larger change in wages is needed to attract one more percentage of workers. 
 
-There are two types of individuals, $\tau \in \{H,L\}$ as high- and low-skilled labor. Production in each location is modeled as a CES combination of high- and low-skilled inputs
-\begin{eqnarray}
-	 A(i)\Big[ \beta_H(i) N_H(i)^{\frac{\varepsilon-1}{\varepsilon}} + \beta_L(i) N_L(i)^{\frac{\varepsilon-1}{\varepsilon}} \Big]^{\frac{\varepsilon}{\varepsilon-1}} \nonumber
+Not all but marginal workers are indifferent between locations. For all $i \in J$, for each skill level, we define $W_s$ as the utility of the marginal worker,
+\begin{eqnarray}\label{eq:indiff}
+	 W_s \equiv \frac{w_s(i)} {P(i)} u(i) n_s(i)^{-1/\theta}
 \end{eqnarray}
-where $A(i)$, $N_H(i)$, and $N_L(i)$ are respectively the total factor productivity, measure of high-skilled, and measure of low-skilled labors in location $i$. $\varepsilon>0$ is the elasticity of substitution between high and low skilled labor. $\beta_H(i)>0$ and $\beta_L(i)>0$ are factor intensities. Differences in factor intensities are the primary source of labor heterogenity in the model.  
 
+\subsection{Labor Demand}
+Each location has a representative firm with a CES production function using high- and low skill workers,
+\begin{eqnarray}
+	 A(i)\Big[ \beta_H(i) n_H(i)^{\frac{\varepsilon-1}{\varepsilon}} + \beta_L(i) n_L(i)^{\frac{\varepsilon-1}{\varepsilon}} \Big]^{\frac{\varepsilon}{\varepsilon-1}} \nonumber
+\end{eqnarray}
+where $A(i)$ is total factor productivity in location $i$. $\varepsilon>0$ is the elasticity of substitution between high and low skill workers. $\beta_H(i)>0$ and $\beta_L(i)>0$ are factor intensities. In the model, differences in factor productivity is the \textit{only} determinant of skill.
 By cost minimization, the unit cost of production equals
-\begin{eqnarray}
-    \label{eq:homo_cost_min}
+\begin{eqnarray}\label{eq:unit_cost}
 	 \frac{c(i)}{A(i)} ,~where~~c(i)=\Big[ \beta_H(i)^{\varepsilon} w_H(i)^{1-\varepsilon} + \beta_L(i)^{\varepsilon} w_L(i)^{1-\varepsilon}\Big]^{\frac{1}{1-\varepsilon}}
 \end{eqnarray}
-where $w_H(i)$ and $w_L(i)$ are wages of high-skilled and wage of low-skilled labor in location $i$. 
-Share of spending of producers on high-skilled labor, denoted by $b(i)$, is given by
-\begin{eqnarray}
-    \label{eq:def_b}
+Share of spending of producers on high skill workers, denoted by $b(i)$, is given by
+\begin{eqnarray}\label{eq:input_share}
 	b(i) = \frac{\beta_H(i)^{\varepsilon} w_H(i)^{1-\varepsilon}}{\beta_H(i)^{\varepsilon} w_H(i)^{1-\varepsilon} + \beta_L(i)^{\varepsilon} w_L(i)^{1-\varepsilon}}
 \end{eqnarray}
-
-Because we want to simulate the model, we need to be explicit about agglomeration.  We  assume that $\beta_H(i)=\bar{\beta}_H N_H(i)^{\alpha_H}$ and $\beta_L(i) = \bar{\beta}_L N_L(i)^{\alpha_L}$.  Agglomeration in a location for a particualr type of worker only depends on the number of workers of the same type.
-
-\subsubsection{Market Structure, Trade, Indirect Utility.}
-
-Let $d(s,i)$ be the trade costs of shipping a good from $s$ to $i$. With perfectly competitive markets, price of a good produced in location $s$ and consumed in location $i$, $p(s,i)$, equals $c(s)d(s,i)/A(s)$. An individual of type $\tau$ in location $i$ spends $x_\tau(s,i)$ on goods produced in $s$,
-\begin{eqnarray}
-    \label{eq:homo_demand}
-	x_\tau(s,i) & \equiv & p(s,i) q_\tau(s,i) = \Big[ \frac{p(s,i)}{P(i)} \Big]^{1-\sigma} w_\tau(i) 
+Following the literature, we distinguish two sorts of agglomeration forces. First 
+\begin{eqnarray}\label{eq:agglom_general}
+A(i) = \bar{A}(i) n(i)^{\alpha}
 \end{eqnarray}
-where 
-\begin{eqnarray}
-    \label{eq:homo_price_index}
-	P(i) = \left[\int_S p(s,i)^{1-\sigma}~ ds\right]^{\frac{1}{1-\sigma}} \nonumber
+with $\alpha>0$. This agglomeration force changes productivity of both low and high skill workers. A Krugman type monopolistic competition generates similar force through endogenous measure of firms. In addition, there is overwhelming evidence that agglomeration forces are stronger for high skill workers; suggesting that high skill individuals are more productive through exchanging ideas with each other. Motivated by these findings, we let a high skill individual be more productive through concentration of high skill workers,
+\begin{eqnarray}\label{eq:agglom_specific}
+	\beta_H(i) & = & \bar{\beta}_H(i) n_H(i)^{\varphi} \nonumber \\
+	\beta_L(i) & = & \bar{\beta}_L(i)
 \end{eqnarray}
-Indirect utility of the consumer in location $i$ with income $w_\tau(i)$ is given by
+[skilled-biased technological change, motivated by the fact that population share of high-skilled is higher in locations where skill premium is also higher]
+
+
+Finally, markets are perfectly competitive. Let $d(j,i)$ be the trade costs of shipping a good from $j$ to $i$. Price of a good produced in location $j$ and consumed in location $i$, $p(j,i)$, equals $c(j)d(j,i)/A(j)$. 
+
+\subsection{Equilibrium}
+
+Definition. A \textit{spatial equilibrium} is a set of $w_H(i)$, $w_L(i)$, $n_H(i)$, and $n_L(i)$ such that
+\begin{itemize}
+\item Goods market clear
+\begin{eqnarray}\label{eq:goods_mkt_clear}
+	w_H(i) n_H(i) =  b(i) \int_J \sum_{s \in \{H,L\}} n_s(i)x_s(j,i) ~dj 
+\end{eqnarray}
+where $x_s(j,i)$ is given by (\ref{eq:x_s}), and $b(i)$ is given by (\ref{eq:input_share}).
+\item Marginal workers are indifferent across locations according to (\ref{eq:indiff}).
+\item Feasible allocation of labor, $\int_J n_H(j) ~dj = N_H$ and $\int_J n_L(j) ~dj = N_L$.
+\end{itemize}
+
+\vspace{5mm}
+\textit{Equilibrium Analysis.}~~ On the demand side of labor markets, 
 \begin{eqnarray}
-	W_\tau(i) & = & \frac{w_\tau(i)}{P(i)}u(i). \nonumber
+	b(i) \equiv \frac{1}{1 + \frac{n_L(i)}{n_H(i)} \frac{w_L(i)}{w_H(i)}} = \frac{1}{1 + \Big(\frac{\beta_L(i)}{\beta_H(i)}\Big)^{\varepsilon} \Big(\frac{w_L(i)}{w_H(i)}\Big)^{1-\varepsilon}} \nonumber
+\end{eqnarray}
+where the LHS is an equivalent definition for high skill input share, and the RHS is equivalent to (\ref{eq:input_share}). Therefore,
+\begin{eqnarray}\label{eq:labor_demand_general}
+	\Big[\frac{\beta_L(i)}{\beta_H(i)}\Big]^{\varepsilon} \Big[\frac{w_L(i)}{w_H(i)}\Big]^{-\varepsilon}= \frac{n_L(i)}{n_H(i)} 
+\end{eqnarray}
+Under our specification, equation (\ref{eq:labor_demand_general}) yields
+\begin{eqnarray}\label{eq:labor_demand}
+	\omega(i) \equiv \frac{w_H(i)}{w_L(i)} = \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)}\Big[ \frac{n_H(i)}{n_L(i)} \Big]^{-1/\varepsilon}n_H(i)^{\varphi/\varepsilon}
+\end{eqnarray}
+where $\omega(i)$ is skill premium in location $i$.
+
+According to welfare equalization for marginal workers, equation (\ref{eq:indiff}), the supply side of labor markets imply
+\begin{eqnarray}\label{eq:labor_supply}
+	\omega(i) = \frac{W_H}{W_L} \Big[ \frac{n_H(i)}{n_L(i)} \Big]^{\theta}
+\end{eqnarray}
+Labor markets clear when skill premia, $[\omega(i)]_{i \in J}$, satisfy the pairs of demand by (\ref{eq:labor_demand}) and supply by (\ref{eq:labor_supply}). By equations \ref{eq:labor_demand}--\ref{eq:labor_supply},
+\begin{eqnarray}\label{eq:labor_demand_supply}
+n_L(i) = \Big( \frac{W_L}{W_H} \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)} \Big)^{-\varepsilon/(1+\theta \varepsilon)} \Big( n_H(i) \Big)^{1-\varphi/(1+\theta \varepsilon)}
+\end{eqnarray}
+Note that skill share, $n_H/n_L$, is determined solely by exogenous parameters if $\varphi=0$ or $\theta=\infty$. In either case, skill premium, $w_H/w_L$, equalizes across locations. In case $\varphi=0$, high skill workers have no advantage from agglomeration effects. For spatial variations in skill premia, skill-specific agglomeration is necessary but still not sufficient. We also need $\theta$ to be finite, or equivalently the variance of unobserved preferences to be positive. When the variance is larger, workers are less willing to migrate in response to changes in wages.
+Suppose because of agglomeration effects for high skill workers, there is more demand to attract high skill workers. When unobserved preferences do matter, high skill workers do not fully capitalize this opportunity as some of them are so attached to other cities. In this respect, our model departs from Rosen-Roback-AA by highlighting the role of labor supply elasticity ---not \textit{all} but only the \textit{marginal worker} is indifferent between locations.
+
+Define $\rho_H(i) = n_H(i)/N_H$ as the density of high skill labor. Equation (\ref{eq:labor_demand_supply}) and $ N_L = \int_J n_L(i)~di $ pin down $W_H/W_L$ only as a function of $\rho_H(i)$,
+%\begin{eqnarray}
+%\frac{W_H}{W_L} =
+%\Big(N_L\Big)^{(1+\theta \varepsilon)/\varepsilon}\Bigg[ \int_J \Big(  \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)} \Big)^{-\varepsilon/(1+\theta \varepsilon)} \Big( n_H(i) \Big)^{1-\varphi/(1+\theta \varepsilon)}~di \Bigg]^{-(1+\theta \varepsilon)/\varepsilon}
+%\end{eqnarray}
+\begin{eqnarray}\label{eq:WHtoL}
+\frac{W_H}{W_L} =
+\underbrace{\Big(N_H/N_L\Big)^{-(1+\theta \varepsilon)/\varepsilon}}_{\mbox{scarcity}} \times \underbrace{N_H^{\varphi/\varepsilon}}_{\mbox{agglom.}} 
+\times
+\underbrace{\Bigg[ \int_J \Big(  \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)} \Big)^{-\varepsilon/(1+\theta \varepsilon)} \Big( \rho_H(i) \Big)^{1-\varphi/(1+\theta \varepsilon)}~di \Bigg]^{-(1+\theta \varepsilon)/\varepsilon}}_{\mbox{allocation}} 
+\end{eqnarray}
+Equation (\ref{eq:WHtoL}) decomposes the three forces behind real well-being inequality of marginal workers: 1) Aggregate scarcity of high skill labor, 2) Aggregate agglomeration advantage of high skill workers, 3) A weighted average of relative productivities in which weights are the density of high skill labor. While the  first two behave at the aggregate, the third relates to the distribution of population. In addition, note that agglomeration is less effective when the elasticity of substitution between high and low skill labor, $\varepsilon$, is higher.
+
+\textit{Integral Equations.}~~Total income in $i$ equals
+$\frac{1}{b(i)} w_H(i)n_H(i)$. Using goods market clearing condition by equations (\ref{eq:goods_mkt_clear}), 
+\begin{eqnarray}
+	w_H(i) n_H(i) b(i)^{-1} = 
+	\int_J \Big[ \frac{c(i) d(i,j)}{A(i) P(j)} \Big]^{1-\sigma} w_H(j) n_H(j) b(j)^{-1} ~dj \nonumber
 \end{eqnarray}
 
-\subsubsection{Equilibrium Conditions}
-Let $X(s,i)= N_H(i)x_h(s,i) + N_L(i)x_l(s,i)$.  The goods market clearing condition is summarized by
-\begin{eqnarray}
-    \label{eq:homo_mcc}
-	w_H(i) N_H(i) =  b(i) \int_S X(i,s) ds 
+Equations (\ref{eq:unit_cost}) and (\ref{eq:input_share}) imply that 
+\begin{eqnarray}\label{eq:ctilde}
+	c(i) & = & \tilde{c}(i) w_H(i) \nonumber \\
+	where~~~ \tilde{c}(i) & = & 
+	\Big[\bar{\beta}_H(i) n_H(i)^{\varphi}\Big] ^{\frac{\varepsilon}{1-\varepsilon}} \Big[b(i)\Big]^{\frac{-1}{1-\varepsilon}}
 \end{eqnarray}
-Welfare equalization is give by
-\begin{eqnarray}
-	W_L = \frac{w_L(i)}{P(i)}u(i) , ~ 	 \nonumber
-    \label{eq:homo_wel_eq}
-	W_H = \frac{w_H(i)}{P(i)}u(i) 
-\end{eqnarray}
-
-As before, a distribution of economic activity is a set of $w_H$, $w_L$, $N_H$, and $N_L$. A spatial equilibrium is a distribution of economic activity such that welfare is equalized and $\int_S N_H(s) ~ds = \bar{N}_h$ and $\int_S N_L(s) ~ds = \bar{N}_L$.
-
-\subsubsection{Solving the model}
-
-The full derivation is in the appendix.  As in the non-homothetic case, through manipulating and reducing the market clearing and welfare equilization conditions, we can reduce the equilibrium conditions to the following two conditions:
-
-\begin{eqnarray}
-    \label{eq:homo_eq_1}
-	& & w_H(i)^{\sigma} N_H(i) b(i)^{-1} \nonumber \\
+We replace for $c(i)$ from (\ref{eq:ctilde}) and price index from welfare equalization for marginal workers (\ref{eq:indiff}) into the integral equation. After some algebra,
+\begin{eqnarray}\label{eq:system1}
+	& & A(i)^{1-\sigma} \tilde{c}(i)^{\sigma-1} n_H(i)  w_H(i)^{\sigma}  b(i)^{-1}  \nonumber \\
 	& & =  
-	W_H^{1-\sigma} A(i)^{\sigma-1} \tilde{c}(i)^{1-\sigma}
-	\int_S d(i,s)^{1-\sigma} u(s)^{\sigma-1} w_H(s)^{\sigma} N_H(s) b(s)^{-1}  ~ds \\
-    \label{eq:homo_eq_2}
- 	& & w_H(i)^{1-\sigma} =  W_H^{1-\sigma} u(i)^{\sigma-1} 
- 	\int_S  d(s,i)^{1-\sigma} A(s)^{\sigma-1}  \tilde{c}(s)^{1-\sigma} w_H(s)^{1-\sigma}
- 	~ ds
+	W_H^{1-\sigma}
+	\int_J d(i,j)^{1-\sigma} u(j)^{\sigma-1} n_H(j)^{(\theta+1-\sigma)/\theta} w_H(j)^{\sigma} b(j)^{-1}  ~dj
 \end{eqnarray}
-
-Equations \eqref{eq:homo_eq_1} and \eqref{eq:homo_eq_2} give us two systems of integral equations. By the following relation, we can reduce the two systems into one: 
+By replacing price index from welfare equalization (\ref{eq:indiff}) into (\ref{eq:price_index}) 
 \begin{eqnarray}
-    \label{eq:homo_alt_eq}
-	\frac{w_H(i)^{\sigma}N_H(i)A(i)^{1-\sigma}\tilde{c}(i)^{\sigma-1}}{b(i)} = \phi w_H(i)^{1-\sigma} u(i)^{1-\sigma}
+	\Big[ \frac{w_H(i) u(i) n_H(i)^{-1/\theta}}{W_H } \Big]^{1-\sigma} = \int_J c(j)^{1-\sigma}d(j,i)^{1-\sigma}A(j)^{\sigma-1}~ dj \nonumber
 \end{eqnarray}
-where $\phi > 0$ is a constant. As long as \eqref{eq:homo_alt_eq} holds, then system \eqref{eq:homo_eq_1} holds if and only if system \eqref{eq:homo_eq_2} holds. Any solution to two of the three systems \eqref{eq:homo_eq_1} - \eqref{eq:homo_alt_eq} is an equilibrium.
+which results
+\begin{eqnarray}\label{eq:system2}
+ 	& &  u(i)^{1-\sigma} n_H(i)^{(\sigma-1)/\theta} w_H(i)^{1-\sigma}  = \nonumber \\ 
+ 	& & 
+ 	W_H^{1-\sigma}
+ 	\int_J  d(j,i)^{1-\sigma} A(j)^{\sigma-1}  \tilde{c}(j)^{1-\sigma} w_H(j)^{1-\sigma}
+ 	~ dj \nonumber \\
+\end{eqnarray}
+Equations \ref{eq:system1}--\ref{eq:system2} give us two systems of integral equations. Note that in case $\varphi=0$ and $\theta=\infty$, the integral equations collapse to Allen and Arkolakis (2014). 
 
-\subsubsection{Discussion}
+By the following relation, we can reduce the two systems into one: 
+\begin{eqnarray}\label{eq:systems_relation}
+	\frac{w_H(i)^{\sigma}n_H(i)A(i)^{1-\sigma}\tilde{c}(i)^{\sigma-1}}{b(i)} = \phi w_H(i)^{1-\sigma} u(i)^{1-\sigma} n_H(i)^{(\sigma-1)/\theta}
+\end{eqnarray}
+where $\phi > 0$ is a constant.
 
-As this version of the model is homothetic, it does not deliver varying skill premiums across locations.  There is a single skill premium everywhere.  On the other hand, college shares can vary.  Consider the \eqref{eq:homo_col_share} in the appendix, which is implied by the equilibrium conditions of the homothetic model.  For convenience, the relation is reproduced here:
+\subsection{Solution Algorithm}
 
+\begin{enumerate}
+\item Guess $n_H(i)$ for all $i$.
+\item Compute $W_H/W_L$ according to (\ref{eq:WHtoL}). Then plug it in (\ref{eq:labor_demand_supply}) to find $n_L(i)$.
+\item Calculate skill premia, $\omega(i)$, according to (\ref{eq:labor_supply}).
+\item Compute $b(i)
+= 1/(1 + \frac{n_L(i)}{n_H(i)} \frac{1}{\omega(i)})$
+\item Find $\tilde{c}(i)$ according to (\ref{eq:ctilde}).
+\item Calculate $w_H(i)$ according to (\ref{eq:systems_relation}) (up to a scale imposed by $\phi$)
+\item Let $f(i)=w_H(i)^{1-\sigma}$, $\kappa=W_H^{1-\sigma}$, and
+\[
+K(j,i) = n_H(i)^{(1-\sigma)/\theta}u(i)^{\sigma-1} d(j,i)^{1-\sigma} A(j)^{\sigma-1} \tilde{c}(j)^{1-\sigma}
+\]
+Then, rewrite (\ref{eq:system2}) as follows:
+\[
+f(i) = \kappa \int_J K(j,i) f(j)~dj
+\]
+In iteration $t$, update $f^{(t)}(i)$ according to
 \begin{eqnarray}
-	\frac{W_H}{W_L} = \frac{\bar{\beta}_H}{\bar{\beta}_L} \frac{N_H(i)^{\tilde{\alpha}_H /\varepsilon}}{N_L(i)^{\tilde{\alpha}_L/\varepsilon}} \nonumber
+	f^{(t+1)}(i) = \frac{\int_J K(j,i) f^{(t)}(j)~dj}{\int_J \int_J K(j,i) f^{(t)}(j)~dj di}
 \end{eqnarray}
-where $\tilde{\alpha}_\tau \in [-1,\infty]$ are parameters reflecting the strength of agglomeration forces.  Generically a proportional increase in the high and low-skill populations will violate this relationship, so city size will have an influence on college share.  Exactly how geography and city size interact with college share will be discussed in the following section.
+\item Find $\phi$ such that $N_H=\int_J n_H(i)~di$.
+\end{enumerate}
+% \subsection{No Skill Premia Variation with Homothetic Preferences}
+% 
+% Workers have homothetic preferences of the form:
+% 
+% \begin{equation}
+%     U(\bm{c}) = u(\bm{c}) a \nonumber
+%     \label{eq:homo}
+% \end{equation}
+% 
+% Subject to:
+% 
+% \begin{equation}
+%     w = \bm{p} \bm{c}  \nonumber
+%     \label{eq:homobc}
+% \end{equation}
+% 
+% In the above preferences, $a$ is amenities, $\bm{c}$ is a vector of consumption, $\bm{p}$ is a vector of prices, and $w$ is the wage.  Because preferences are homothetic, indirect utility can be written: 
+% 
+% \begin{equation}
+%     U(\bm{p},w) = w f(\bm{p}) a \nonumber
+%     \label{eq:homoin}
+% \end{equation}
+% 
+% The form of $f$ depends on the specific functional form of $u$.  Now suppose we have two locations, $1$ and $2$, and two types of workers $h$ and $l$.  Amenities, wages, and prices are all different in the two locations, and wages differ across types as well.  In a spatial equilibrium model with free movement between locations, welfare in any populated location must be equalized within a type.
+% 
+% \begin{align}
+%     w_{h,1} f(\bm{p}_{1}) a_{1} &= w_{h,2} f(\bm{p}_{2}) a_{2} \nonumber \\
+%     w_{l,1} f(\bm{p}_{1}) a_{1} &= w_{l,2} f(\bm{p}_{2}) a_{2} \nonumber
+% \end{align}
+% 
+% Divinging the two welfare equalization conditions, we see that the skill premium will be the same in any location populated with both type of worker.
+% 
+% \begin{equation}
+%     \frac{w_{h,1}}{w_{l,1}} = \frac{w_{h,2}}{w_{l,2}} \nonumber
+% \end{equation}
+% 
+% The equalization of the skill premium does not depend on the production structure of the economy, or the geography between cities.  It also does not require that the share of types be the same in any two locations.
+% 
+% \subsection{Non-homothetic preferences}
+% 
+% We have shown that we need to use a non-homothetic utility function in our model if we want to capture the dependence of the skill premium on geography.  There are, of course, many different ways for preferences to be non-homothetic.  To guide our modeling, we examine household expenditure on housing.   Housing is a large share of household expenditure, and research on the welfare effects of trade barriers has focused on the housing stock, or at least some non-tradable consumption good in fixed supply \citep{helpman1998size,redding2008costs}.  We examine how the share of a household's expenditure on housing varies with income.  This relationship is sometimes called an Engel curve.
+% 
+% \begin{figure}
+%     \begin{center}
+%         \includegraphics[width=4in]{pics/rent_shr_wage_scatter_00.png}
+%     \end{center}
+%     \caption{2000 American imputed annual rent over total expenditures}
+%     \label{fig:wage_rent}
+% \end{figure}
+% 
+% If preferences were homothetic, we would expect income to be unrelated to the share of total expenditure spent on housing.  Figure \ref{fig:wage_rent} contains share of spending on housing over total spending created from the American Consumer Expenditure Survey.  The measure of housing spending is actual rent if available, and imputed rent for homeowners.  We see that as expenditure increases, the share of expenditure spent on housing decreases.  We use total expenditure rather than total income because the rich save more than the poor, so that spending as a share of income is decreasing in every category of spending.
+% 
+% \subsubsection{Preferences and production technology}
+% 
+% In order to capture the decreasing Engel curve, we use Stone-Geary preferences.  A worker needs to consume a certain amount of housing $k_0$ before he can enjoy any other consumption.  As above, there are two types of labor, high-skilled $H$ and low-skilled $L$, and it is convenient for us to assume that high-skill labor produces a tradeable good, while low-skill labor produces a local non-tradable.  A final consumer with budget $y$ in location $i$ maximizes welfare,
+% 
+% \begin{eqnarray}
+% 	\max \limits_{q_H(s,i),~q_L(i),~z} ~
+% 	\left(\left[\int_S q_H(s,i)^{\frac{\sigma - 1}{\sigma}}~ ds\right]^{\frac{\sigma}{\sigma-1}}\right)^{\gamma_H} q_L(i)^{\gamma_L} (z-z_0)^{1-\gamma_H-\gamma_L} \nonumber
+% \end{eqnarray} 
+% subject to
+% \begin{eqnarray}
+% 	y = p_z(i) z + p_L(i)q_L(i) + \int_S p_H(s,i)q_H(s,i) ds  \nonumber
+% \end{eqnarray}
+% 
+% Here, $H$ and $L$ index goods produced by high- and low-skilled labor. $H$ is differentiated by location of production and is tradable, while $L$ is a nontradable bundle to be locally produced. $z$ is the consumption of local housing.  We currently do not have amenities here, but they would be straight-forward to add.
+% 
+% Labor is the only factor of production, and define $A_H(i)$ to be the units a high-skilled worker produces in one hour.  We will call this the productivity of high-skilled labor in location $i$.  Let $w_H(i)$ the wage of high-skilled labor in location $i$, and $d(s,i) \geq 1$ be the iceberg trade costs of shipping an high-skill good from $s$ to $i$.  That is, in order to have one unit of the good arrive in $i$, a producer in $s$ needs to ship $d(s,i)$ units of the good.  We that markets are perfectly competitive, so that the price $p_H(s,i)$ of the good produced in $s$ and sold in location $i$ is $w_H(s)d(s,i)/A_H(s)$ Similarly define $A_L(i)$, $w_L(i)$, and $p_L(i)$. 
+% 
+% \subsubsection{Optimal consumer expenditure}
+% 
+% Given wages and productivities, optimal expenditures of a consumer in location $i$ with income $y$ are given as follows:
+% \begin{eqnarray}
+% 	X_H(s,i;y) & = & \Big[ \frac{p_H(s,i)}{P_H(i)} \Big]^{1-\sigma} \gamma_H (y-p_z(i)z_0) \nonumber \\
+% 	X_L(i;y)   & = & \gamma_L (y-p_z(i)z_0) \nonumber \\
+% 	X_z(i;y)   & = & (1-\gamma_H-\gamma_L)(y-p_z(i) z_0)+p_z(i)z_0 \\
+%     \label{eq:house_demand}
+% \end{eqnarray}
+% where the price index of the differentiated good is
+% \begin{eqnarray}
+%     \label{eq:nonhomo_price_index}
+% 	P_H(i) = \left[\int_S p_H(s,i)^{1-\sigma}~ ds\right]^{\frac{1}{1-\sigma}}
+% \end{eqnarray} 
+% We can now verify that the share of spending on housing is decreasing in income, and equal to $(1-\gamma_H-\gamma_L)+(\gamma_H+\gamma_L){p_z(i)z_0}/{y}$. 
+% Indirect utility of a worker in location $i$ with income is $y$ is
+% \begin{eqnarray}
+% 	W(i;y)  =  \frac{y-p_z(i)z_0}{P(i)} \nonumber
+% \end{eqnarray}
+% where the ideal price index is
+% \[
+% 	P(i)  = \gamma_{0}
+% 	P_H(i)^{\gamma_H}p_L(i)^{\gamma_L}p_z(i)^{1-\gamma_H-\gamma_L},
+% \]
+% with $\gamma_{0}=\gamma_H^{-\gamma_H} \gamma_L^{-\gamma_L}(1-\gamma_H-\gamma_L)^{-(1-\gamma_H-\gamma_L)}$.
+% 
+% \subsubsection{Equilibrium Conditions}
+% 
+% As is standard in the economic geography literature, we assume that workers are freely mobile between locations.  This implies that within each type welfare must be the same in any location.  Replace $y$ with $w_H(i)$ for high-skilled labor and $w_L(i)$ for low-skilled labor.  Welfare equalization implies that for all populated locations $i$, we have
+% \begin{eqnarray}
+% 	W_L = \frac{w_L(i)-p_z(i)z_0}{P(i)} , ~ 	
+% 	W_H = \frac{w_H(i)-p_z(i)z_0}{P(i)}
+%     \label{eq:weleq}
+% \end{eqnarray}
+% 
+% Next we have the market clearing conditions.  Let $N(i)$, $N_H(i)$ and $N_L(i)$ be measures of total, high- and low-skilled labor in location $i$.  $X_H(s,i)$, $X_L(i)$, $X_z(i)$ be aggregate spending in each location.  The supply of housing in each location is the same and equals $\bar{Z}$. Market clearing conditions for high-skilled labor, low-skilled labor, and housing are given by
+% \begin{eqnarray}
+% 	(mcc_H) & & w_H(i) N_H(i) = \int_S X_H(i,s) ds  \nonumber \\
+% 	(mcc_L) & & w_L(i) N_L(i) = X_L(i) \nonumber \\
+% 	(mcc_z) & & p_z(i) \bar{Z} = X_z(i)  \nonumber
+% \end{eqnarray}
+% 
+% We have to take a stand on who receives the payments for local endowments. In each location $i$, there is a measure one of housing owners whose total income is $p_z(i) \bar{Z}$.  These capitalists do not participate in labor market, and only consuming what they earn by housing renting their housing to perfectly competitive housing firms.  Total population in $i$ is then $N(i)=N_H(i)+N_L(i)+1$, and total income, denoted by $Y(i)$, is given by
+% \[
+% 	Y(i) = w_H(i) N_H(i) + w_L(i) N_L(i) + p_z(i) \bar{Z}
+% \]
+% 
+% Define a distribution of economic activity to be a set of $w_H$, $w_L$, $N_H$, and $N_L$ with normalization $\int_S w_H(s)~ ds =1$. A distribution of economic activity is a spatial equilibrium if welfare is equalized across populated locations, goods markets clear in each location, and the sum of populations local populations is equal to exogenously given aggregates, $\int_S N_L(s) ~ds = \bar{N}_L$ and $\int_S N_H(s) ~ds = \bar{N}_H$.
+% 
+% \subsubsection{Solving the model}
+% 
+% We can reduce the model to two equilibrium conditions reminescent of those derived in \citet{allen2014trade}.  This is important, because having the equilibrium conditions in a similar form will allow us to use both the same existence and uniqueness results as that paper and also an iterative procedure for finding the equilibrium.\footnote{We won't be able to get a clean parameter condition for existance and uniqueness as in \citet{allen2014trade}, but we can numerically show uniqueness for a set of parameters.  Also, our estimation algorithm will have to be somewhat more involved.  More on both points later.}
+% 
+% Our first equilibrium condition is:
+% 
+% \begin{eqnarray}
+% 	& & N_H(i) w_H(i)^{\sigma}   = \nonumber \\
+% 	& & \int_S W_H^{1-\sigma} m(s)^{1-\sigma} d(i,s)^{1-\sigma} A_H(i)^{\sigma-1} g(s)^{\sigma-1} N_H(s) w_H(s)^{\sigma}~ds  \nonumber
+%     \label{eq:equib1}
+% \end{eqnarray}
+% 
+% And our second is:
+% 
+% \begin{eqnarray}
+%  	w_H(i)^{1-\sigma} = \int_S W_H^{1-\sigma} m(i)^{1-\sigma} d(s,i)^{1-\sigma} A_H(s)^{\sigma-1} c(i)^{\sigma-1}  	w_H(s)^{1-\sigma} \nonumber
+%  	~ ds
+%     \label{eq:equib2}
+% \end{eqnarray}
+% 
+% The only difference between our conditions, and those in \citet{allen2014trade} are the presence of the functions $m$ and $g$.  These are given below:
+% 
+% \begin{eqnarray}
+%     \label{eq:end1}
+% 	m(i)  & \equiv & \frac{P(i)}{P_H(i)} \\
+%     \label{eq:end2}
+% 	g(s) & \equiv & 1- \frac{(1-\gamma_H -\gamma_L)N_H(s)z_0}{\gamma_H (\bar{Z}-N(s)z_0)}
+% \end{eqnarray}
+% 
+% These additions are not trivial, as they involve endogenous objects -- prices in the case of \eqref{eq:end1} and populations in the case of \eqref{eq:end2}.  Prices $P(i)$ and $P_H(i)$ and total populations $N(i)$ appear nowhere else in the equilibrium conditions.  We have yet to simulate this model, but to solve for equilibrium will conceptually involve a traditional iteration on a fixed point -- taking $c$ and $m$ as given, solve the model, and then use the model's solution to update $c$ and $m$ and resolve, etc.
+% 
+% \subsubsection{Discussion}
+% 
+% We have developed an empirical model of geography and non-homothetic preferences.  Before taking it to the data, however, we can learn something from simply examining the relationships in the model.  One key empirical feature we want to match is the relationship between remoteness/population and the skill premium.  From \eqref{eq:weleq}, we get the following:
+% 
+% \begin{equation}
+% 	\frac{W_H}{W_L} = \frac{w_H(i)-p_z(i)z_0}{w_L(i)-p_z(i)z_0}
+%     \label{eq:exam_prem}
+% \end{equation}
+% 
+% A side note here is that we have also tried a totally different set of non-homothetic preferences similar to those in \citet{fajgelbaum2011income}, and in that version we get a very similar relationship.  Consider raising wages for low and high skill workers proportionally.  This will cause the right-hand side of \eqref{eq:exam_prem} to decrease.  Since we expect agglomeration to raise nominal wages in larger, less remote cities, this force makes the wage premium covary positively with population.  On the other hand, suppose that we raise the price of housing.  This causes the right-hand side of \eqref{eq:exam_prem} to increase, which pushes the wage premium to be lower in cities with higher housing prices.  Since we expect larger and less remote cities to have higher housing prices, this force makes the wage premium vary negatively with population.  Since we know the skill premium is higher in larger cities, loosely, we expect agglomeration to dominate congestion.
+% 
+% There are several drawbacks to this non-homothetic model.  The most important is the presence of endogenous variables in the equilibrium condition, which complicates numerical solution.  While this is unfortunate, it seems that this will likely be the case in any non-homothetic version of the model, which is necessary to drive differences in wage premia across cities.  A second drawback is the asymmetry and rigidity of the production function.  High skill workers make tradables, while low skill workers make goods that cannot be traded at all.  The factors are specific to their own good, and cannot be substituted.  In the next section, we present an empirical homothetic model which will not contain any endogenous variables in the equilibrium condition, and will have a more natural production function combining substitutable high and low-skill goods into a single final consumption good. 
+% 
+% \subsection{Homothetic preferences with CES production}
+% 
+% In this section we present a empirical model with homothetic preferences, but which has several attractive features.  First of all, the model will be easily estimable.  We have already written code to simulate the model, and we will present some lessons we have already learned from calibration.  A second attractive feature is a production function which allows for substitution between high and low-skill labor in the production of a single final consumption good.
+% 
+% \subsubsection{Preferences and production technology}
+% A final consumer of type $\tau$ in location $i$ maximizes welfare,
+% \begin{eqnarray}
+% 	\max \limits_{q_{\tau}(s,i)} ~
+% 	\left[\int_S q_{\tau}(s,i)^{\frac{\sigma - 1}{\sigma}}~ ds\right]^{\frac{\sigma}{\sigma-1}} u(i) \nonumber
+% \end{eqnarray} 
+% subject to
+% \begin{eqnarray}
+% 	w_{\tau} = \int_S p(s,i)q_\tau(s,i) ds  \nonumber
+% \end{eqnarray}
+% Goods are differentiated by the origin of production. $q_{\tau}(s,i)$ is consumer $\tau$'s consumption in $i$ from goods originated in location $s$. As we will simulate this model, we include amenities as well, which we abstracted from in the non-homothetic model above.  $u(i)$ is the utility from amenities in location $i$.
+% 
+% There are two types of individuals, $\tau \in \{H,L\}$ as high- and low-skilled labor. Production in each location is modeled as a CES combination of high- and low-skilled inputs
+% \begin{eqnarray}
+% 	 A(i)\Big[ \beta_H(i) N_H(i)^{\frac{\varepsilon-1}{\varepsilon}} + \beta_L(i) N_L(i)^{\frac{\varepsilon-1}{\varepsilon}} \Big]^{\frac{\varepsilon}{\varepsilon-1}} \nonumber
+% \end{eqnarray}
+% where $A(i)$, $N_H(i)$, and $N_L(i)$ are respectively the total factor productivity, measure of high-skilled, and measure of low-skilled labors in location $i$. $\varepsilon>0$ is the elasticity of substitution between high and low skilled labor. $\beta_H(i)>0$ and $\beta_L(i)>0$ are factor intensities. Differences in factor intensities are the primary source of labor heterogenity in the model.  
+% 
+% By cost minimization, the unit cost of production equals
+% \begin{eqnarray}
+%     \label{eq:homo_cost_min}
+% 	 \frac{c(i)}{A(i)} ,~where~~c(i)=\Big[ \beta_H(i)^{\varepsilon} w_H(i)^{1-\varepsilon} + \beta_L(i)^{\varepsilon} w_L(i)^{1-\varepsilon}\Big]^{\frac{1}{1-\varepsilon}}
+% \end{eqnarray}
+% where $w_H(i)$ and $w_L(i)$ are wages of high-skilled and wage of low-skilled labor in location $i$. 
+% Share of spending of producers on high-skilled labor, denoted by $b(i)$, is given by
+% \begin{eqnarray}
+%     \label{eq:def_b}
+% 	b(i) = \frac{\beta_H(i)^{\varepsilon} w_H(i)^{1-\varepsilon}}{\beta_H(i)^{\varepsilon} w_H(i)^{1-\varepsilon} + \beta_L(i)^{\varepsilon} w_L(i)^{1-\varepsilon}}
+% \end{eqnarray}
+% 
+% Because we want to simulate the model, we need to be explicit about agglomeration.  We  assume that $\beta_H(i)=\bar{\beta}_H N_H(i)^{\alpha_H}$ and $\beta_L(i) = \bar{\beta}_L N_L(i)^{\alpha_L}$.  Agglomeration in a location for a particualr type of worker only depends on the number of workers of the same type.
+% 
+% \subsubsection{Market Structure, Trade, Indirect Utility.}
+% 
+% Let $d(s,i)$ be the trade costs of shipping a good from $s$ to $i$. With perfectly competitive markets, price of a good produced in location $s$ and consumed in location $i$, $p(s,i)$, equals $c(s)d(s,i)/A(s)$. An individual of type $\tau$ in location $i$ spends $x_\tau(s,i)$ on goods produced in $s$,
+% \begin{eqnarray}
+%     \label{eq:homo_demand}
+% 	x_\tau(s,i) & \equiv & p(s,i) q_\tau(s,i) = \Big[ \frac{p(s,i)}{P(i)} \Big]^{1-\sigma} w_\tau(i) 
+% \end{eqnarray}
+% where 
+% \begin{eqnarray}
+%     \label{eq:homo_price_index}
+% 	P(i) = \left[\int_S p(s,i)^{1-\sigma}~ ds\right]^{\frac{1}{1-\sigma}} \nonumber
+% \end{eqnarray}
+% Indirect utility of the consumer in location $i$ with income $w_\tau(i)$ is given by
+% \begin{eqnarray}
+% 	W_\tau(i) & = & \frac{w_\tau(i)}{P(i)}u(i). \nonumber
+% \end{eqnarray}
+% 
+% \subsubsection{Equilibrium Conditions}
+% Let $X(s,i)= N_H(i)x_h(s,i) + N_L(i)x_l(s,i)$.  The goods market clearing condition is summarized by
+% \begin{eqnarray}
+%     \label{eq:homo_mcc}
+% 	w_H(i) N_H(i) =  b(i) \int_S X(i,s) ds 
+% \end{eqnarray}
+% Welfare equalization is give by
+% \begin{eqnarray}
+% 	W_L = \frac{w_L(i)}{P(i)}u(i) , ~ 	 \nonumber
+%     \label{eq:homo_wel_eq}
+% 	W_H = \frac{w_H(i)}{P(i)}u(i) 
+% \end{eqnarray}
+% 
+% As before, a distribution of economic activity is a set of $w_H$, $w_L$, $N_H$, and $N_L$. A spatial equilibrium is a distribution of economic activity such that welfare is equalized and $\int_S N_H(s) ~ds = \bar{N}_h$ and $\int_S N_L(s) ~ds = \bar{N}_L$.
+% 
+% \subsubsection{Solving the model}
+% 
+% The full derivation is in the appendix.  As in the non-homothetic case, through manipulating and reducing the market clearing and welfare equilization conditions, we can reduce the equilibrium conditions to the following two conditions:
+% 
+% \begin{eqnarray}
+%     \label{eq:homo_eq_1}
+% 	& & w_H(i)^{\sigma} N_H(i) b(i)^{-1} \nonumber \\
+% 	& & =  
+% 	W_H^{1-\sigma} A(i)^{\sigma-1} \tilde{c}(i)^{1-\sigma}
+% 	\int_S d(i,s)^{1-\sigma} u(s)^{\sigma-1} w_H(s)^{\sigma} N_H(s) b(s)^{-1}  ~ds \\
+%     \label{eq:homo_eq_2}
+%  	& & w_H(i)^{1-\sigma} =  W_H^{1-\sigma} u(i)^{\sigma-1} 
+%  	\int_S  d(s,i)^{1-\sigma} A(s)^{\sigma-1}  \tilde{c}(s)^{1-\sigma} w_H(s)^{1-\sigma}
+%  	~ ds
+% \end{eqnarray}
+% 
+% Equations \eqref{eq:homo_eq_1} and \eqref{eq:homo_eq_2} give us two systems of integral equations. By the following relation, we can reduce the two systems into one: 
+% \begin{eqnarray}
+%     \label{eq:homo_alt_eq}
+% 	\frac{w_H(i)^{\sigma}N_H(i)A(i)^{1-\sigma}\tilde{c}(i)^{\sigma-1}}{b(i)} = \phi w_H(i)^{1-\sigma} u(i)^{1-\sigma}
+% \end{eqnarray}
+% where $\phi > 0$ is a constant. As long as \eqref{eq:homo_alt_eq} holds, then system \eqref{eq:homo_eq_1} holds if and only if system \eqref{eq:homo_eq_2} holds. Any solution to two of the three systems \eqref{eq:homo_eq_1} - \eqref{eq:homo_alt_eq} is an equilibrium.
+% 
+% \subsubsection{Discussion}
+% 
+% As this version of the model is homothetic, it does not deliver varying skill premiums across locations.  There is a single skill premium everywhere.  On the other hand, college shares can vary.  Consider the \eqref{eq:homo_col_share} in the appendix, which is implied by the equilibrium conditions of the homothetic model.  For convenience, the relation is reproduced here:
+% 
+% \begin{eqnarray}
+% 	\frac{W_H}{W_L} = \frac{\bar{\beta}_H}{\bar{\beta}_L} \frac{N_H(i)^{\tilde{\alpha}_H /\varepsilon}}{N_L(i)^{\tilde{\alpha}_L/\varepsilon}} \nonumber
+% \end{eqnarray}
+% where $\tilde{\alpha}_\tau \in [-1,\infty]$ are parameters reflecting the strength of agglomeration forces.  Generically a proportional increase in the high and low-skill populations will violate this relationship, so city size will have an influence on college share.  Exactly how geography and city size interact with college share will be discussed in the following section.
 
 \section{Simulation of Homothetic model}
 
