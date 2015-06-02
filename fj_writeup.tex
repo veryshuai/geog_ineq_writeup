@@ -44,41 +44,39 @@ These stylized facts have generated a number of theories to help understand them
 In this section, we describe our data sources, give our definitions of measures of geography and inequality, and present the empirical findings which motivate our modeling exercise.  
 \subsection{Data sources}
 
-Our empirical section is based on data from the 2000 American census public use micro-data (PUMS).  In order to be consistent with the literature, we clean the data using replication code from Baum-Snow ReStat, which is available on Nathanial Baum-Snow's website.  In this cut of the data, we eliminate all workers except for white males older than 24 and younger than 55 to abstract from any considerations of sex or race discrimination.  As it stands we are left with around 1.5 million workers distributed across the United States.
+Our empirical section is based on data from the 2000 American census public use micro-data (IPUMS) 5\% sample.\footnote{We clean the data using modified replication code from \citet{baum2013inequality}, which is available on Nathanial Baum-Snow's website.}  In this cut of the data, we use individuals older than 24 and younger than 65 with reported income, giving us observations on over four million workers distributed across the United States.
 
-We want to compare inequality in different locations.  For our purposes, a location will be a 2000 US Census Metropolitan Statistical Area (MSA).  There are more than 300 MSAs, which are economically-integrated regions.  The borders of these regions are based on county borders.  Not all American counties are part of an MSA.  In order to think about the geography of MSA's, we need to know the precise location of each MSA in space.  We download a population weighted centroid for each MSA (and PMSA) from the Missouri census data center (http://mcdc2.missouri.edu/websas/geocorr2k.html).
+We want to compare inequality in different locations.  For our purposes, a location will be a US county.  There are more than 3000 counties in the United States.  In order to think about the geography of counties, we need to know the precise location of each county in space.  We download a population weighted centroid for each county from the Missouri census data center (http://mcdc2.missouri.edu/websas/geocorr2k.html).
+
 
 \subsection{Important concepts}
 
-Our main measure of geography is remoteness, a concept we borrow from the international trade literature.\footnote{It is a famous empirical regularity that the trade of two countries is proportional to the product of their national products divided by the physical distance between them.  This relationship is known as the naive gravity equation.  The adjective naive makes an appearance because such a gravity equation implies that trade between two countries is unaffected by what takes place in a third country.  For example, the trade between the United States and Mexico is unaffected by the rapid increase in trade between China and the United States.  Remoteness in an international trade context is the national-product-weighted sum of the distance between a country and all other countries.  Multiplying the gravity equation by a remoteness term allows third countries to influence bilateral trade relationships.}  The particular functional form we use is based on a suggestion in \citet{head2003gravity}.  Let us label each MSA with a number $i=1\dots N$.  The population of MSA $i$ is $P_i$, and the geodesic distance, i.e. the distance as the crow flies, between MSA $i$ and MSA $j$ is $d_{i,j}$.  The remoteness of MSA $i$ $R_i$ is given by:
+Our main measure of geography is remoteness, a concept we borrow from the international trade literature.\footnote{It is a famous empirical regularity that the trade of two countries is proportional to the product of their national products divided by the physical distance between them.  This relationship is known as the naive gravity equation.  The adjective naive makes an appearance because such a gravity equation implies that trade between two countries is unaffected by what takes place in a third country.  For example, the trade between the United States and Mexico is unaffected by the rapid increase in trade between China and the United States.  Remoteness in an international trade context is the national-product-weighted sum of the distance between a country and all other countries.  Multiplying the gravity equation by a remoteness term allows third countries to influence bilateral trade relationships.}  The particular functional form we use is based on a suggestion in \citet{head2003gravity}.  We label each county with a number $i=1\dots N$.  The population of county $i$ is $P_i$, and the geodesic distance, i.e. the distance as the crow flies, between county $i$ and county $j$ is $d_{i,j}$.  The remoteness of county $i$ $R_i$ is given by:
 
 \begin{equation}
     R_i = \frac{1}{\sum_{j\neq i} \frac{P_j}{d_{i,j}}} \nonumber
     \label{eq:rem}
 \end{equation}
 
-In words, an MSA which is close to other MSA's with high populations will have low remoteness.  We want this measure to reflect the ease with which a location can trade with other locations.  This measure does not, of course, take into account geographic features such as rivers, mountains, roads, and airports, but physical distance is still an important part of transportation cost.  
+In words, an county which is close to other counties with high populations will have low remoteness.  We want this measure to reflect the ease with which a location can trade with other locations.  This measure does not, of course, take into account geographic features such as rivers, mountains, roads, and airports, but physical distance is still an important part of transportation cost.  
 
-We have two measures of inequality, the skill premium and the college share.  Both are measured in a way standard in the labor literature, and are calculated in each MSA.  A worker is highly educated if he has either a college degree or an academic associate degree.  The skill premium is the mean wage of highly-educated workers in an MSA divided by the mean wage of other workers.  The college share is the fraction of highly-educated workers in an MSA.  When calculating all means, we use census population weights.
+We have two measures of inequality, the college wage premium and the college population share.  Both are measured in a way standard in the labor literature, and are calculated in each county.  A worker is highly educated if he has a four-year college degree.  The college premium is the mean wage of highly-educated workers in an county divided by the mean wage of other workers.  The college population share is the population of highly-educated workers in an county divided by the population of less-educated workers.  When calculating all means, we use census population weights.
 
-In addition to our inequality variables, we define the age ratio to be the mean age of the highly educated divided by the mean age of the less educated.  Since we know from the labor literature that wages rise dramatically with age, it will be important for us to control for differences in the age profile of the two education groups in our analysis.  Ideally, we would run our analysis using only workers of approximately the same age, but such a cut reduces the size of our data dramatically and causes measures of inequality to be unreliable in smaller MSA's.  For example, including only workers within a 15-year age window reduces our data by more than half.  While it is somewhat dependent on which specific ages we choose, we get similar results in terms of both magnitudes and statistical significance if we restrict our sample to a 15-year age window rather than including age ratio as a regressor.
-
-Table \ref{tab:sum_stats} contains some descriptive statistics.  Figure \ref{fig:geo} shows how our measures vary across the United States. In each of these figures, blue signifies a higher quantity, and red a lower quantity.  Remoteness has an obvious geographic pattern, as does the skill premium.  Remoteness is lowest in regions radiating out from New York and Chicago.  The skill premium is higher on the East Coast and in the South than it is in the Midwest and the Pacific Northwest.  It is more difficult to see an obvious geographic pattern in college share and population, except that both are higher in New England, the Pacific Northwest, and the coast of California.
+Table \ref{tab:sum_stats} contains some descriptive statistics.  Figure \ref{fig:geo} shows how our measures vary across the United States. In each of these figures, the blue background is remoteness, with deeper blues signifying higher remoteness.  Remoteness has an obvious geographic pattern, lowest on the Northern East and Southern West Coasts.   Dark dots in the other figures signify counties with the highest levels of the variable listed under the figure.  The college wage premium is higher on the East Coast and in the South than it is in the Midwest and the Pacific Northwest.  It is more difficult to see an obvious geographic pattern in college share and population, except that both are higher in New England, the Pacific Northwest, and the coast of California.
 
 \begin{table}
     \centering
     \begin{tabular}{lll}
         \hline \hline
-        Statistic & Mean & Standard Dev \\ 
+        Statistic           & Mean      & Standard Dev \\
         \hline
-        Remoteness    & 3.6\e{-6} & 1.8\e{-6} \\
-        Population    & 7.3\e{5}  & 1.2\e{6}  \\
-        Skill premium & 1.7       & 0.18      \\
-        College share & 0.46      & 0.22      \\
-        Age ratio     & 1.03      & 0.03      \\
+        Remoteness          & 2.4\e{-6} & 1.1\e{-6} \\
+        Population          & 2.3\e{5}  & 5.3\e{5}  \\
+        Skill premium       & 1.58      & 0.15      \\
+        College share       & 0.37      & 0.26      \\
         \hline
-        Census observations & 1.1\e{6} & \\
-        MSA observations    & 309      & \\
+        Census observations & 4.3\e{6}  & \\
+        County observations & 815       & \\
         \hline \hline
     \end{tabular}
     \caption{Data summary statistics}
@@ -87,11 +85,11 @@ Table \ref{tab:sum_stats} contains some descriptive statistics.  Figure \ref{fig
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[Remoteness]{\includegraphics[width=.47\textwidth]{pics/rem.jpeg}}\quad
-  \subfloat[Population]{\includegraphics[width=.47\textwidth]{pics/pop.jpeg}}\\
-  \subfloat[Skill Premium]{\includegraphics[width=.47\textwidth]{pics/skill_prem.jpeg}}\quad
-  \subfloat[College Share]{\includegraphics[width=.47\textwidth]{pics/college_ratio.jpeg}}
-  \caption{MSA's by data feature}
+  \subfloat[Remoteness]{\includegraphics[width=.7\textwidth]{pics/rem.jpeg}}\quad
+  \subfloat[Population]{\includegraphics[width=.7\textwidth]{pics/pop.jpeg}}\\
+  \subfloat[Skill Premium]{\includegraphics[width=.7\textwidth]{pics/college_wage_premium_alt.jpeg}}\quad
+  \subfloat[College Share]{\includegraphics[width=.7\textwidth]{pics/college_pop_ratio.jpeg}}
+  \caption{Counties by data feature}
   \label{fig:geo}
 \end{figure}
 
@@ -100,32 +98,23 @@ Table \ref{tab:sum_stats} contains some descriptive statistics.  Figure \ref{fig
 % This table was done using estout package in stata, which is why the code looks so ugly!
 \begin{table}
     \centering
-    {
-    \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-    \begin{tabular}{l*{3}{c}}
-    \hline\hline
-                        &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
-                        &\multicolumn{1}{c}{Ln Skill Prm}&\multicolumn{1}{c}{Ln Skill Prm}&\multicolumn{1}{c}{Ln Skill Prm}\\
-    \hline
-    Ln Remote           &     -0.0133         &     -0.0452\sym{**} &     -0.0493\sym{***}\\
-                        &    (0.0161)         &    (0.0180)         &    (0.0165)         \\
-    [1em]
-    Ln Age Rat          &                     &       0.997\sym{***}&       1.388\sym{***}\\
-                        &                     &     (0.272)         &     (0.255)         \\
-    [1em]
-    Ln Pop              &                     &                     &      0.0411\sym{***}\\
-                        &                     &                     &   (0.00535)         \\
-    [1em]
-    Constant            &       0.370\sym{*}  &     -0.0617         &      -0.653\sym{***}\\
-                        &     (0.203)         &     (0.232)         &     (0.226)         \\
-    \hline
-    Observations        &         309         &         309         &         309         \\
-    Adjusted \(R^{2}\)  &      -0.001         &       0.038         &       0.191         \\
-    \hline\hline
-    \multicolumn{4}{l}{\footnotesize Standard errors in parentheses}\\
-    \multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+    \begin{tabular}{lccc} \hline
+     & (1) & (2) & (3) \\
+    VARIABLES & l\_wage\_prem & l\_wage\_prem & l\_wage\_prem \\ \hline
+    \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} \\
+    l\_remote & -0.0562*** & -0.0367*** & -0.0310** \\
+    \vspace{4pt} & \begin{footnotesize}(0.00558)\end{footnotesize} & \begin{footnotesize}(0.0113)\end{footnotesize} & \begin{footnotesize}(0.0125)\end{footnotesize} \\
+    l\_pop &  & 0.00809** & 0.00432 \\
+    \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}(0.00391)\end{footnotesize} & \begin{footnotesize}(0.00431)\end{footnotesize} \\
+    Constant & -0.275*** & -0.113 & 0.0495 \\
+     & \begin{footnotesize}(0.0728)\end{footnotesize} & \begin{footnotesize}(0.112)\end{footnotesize} & \begin{footnotesize}(0.123)\end{footnotesize} \\
+    \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} \\
+    State FE & \mbox{no} & \mbox{no} & \mbox{yes} \\
+    Observations & 815 & 815 & 815 \\
+     $R^2$ & 0.119 & 0.124 & 0.307 \\ \hline
+    \multicolumn{4}{c}{\begin{footnotesize} Robust standard errors in parentheses\end{footnotesize}} \\
+    \multicolumn{4}{c}{\begin{footnotesize} *** p$<$0.01, ** p$<$0.05, * p$<$0.1\end{footnotesize}} \\
     \end{tabular}
-    }
     \caption{Regressions of log skill premium on log geography variables}
     \label{tab:skill_reg}
 \end{table}
@@ -134,67 +123,60 @@ Table \ref{tab:sum_stats} contains some descriptive statistics.  Figure \ref{fig
 % This table was done using estout package in stata, which is why the code looks so ugly!
 \begin{table}
     \centering
-    {
-    \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-    \begin{tabular}{l*{3}{c}}
-    \hline\hline
-                        &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
-                        &\multicolumn{1}{c}{Ln College Shr}&\multicolumn{1}{c}{Ln College Shr}&\multicolumn{1}{c}{Ln College Shr}\\
-    \hline
-    Ln Remote           &     -0.0209         &       0.199\sym{***}&       0.182\sym{***}\\
-                        &    (0.0650)         &    (0.0696)         &    (0.0632)         \\
-    [1em]
-    Ln Age Rat          &                     &      -6.880\sym{***}&      -5.289\sym{***}\\
-                        &                     &     (1.052)         &     (0.974)         \\
-    [1em]
-    Ln Pop              &                     &                     &       0.167\sym{***}\\
-                        &                     &                     &    (0.0205)         \\
-    [1em]
-    Constant            &      -1.131         &       1.846\sym{**} &      -0.557         \\
-                        &     (0.821)         &     (0.894)         &     (0.863)         \\
-    \hline
-    Observations        &         309         &         309         &         309         \\
-    Adjusted \(R^{2}\)  &      -0.003         &       0.117         &       0.273         \\
-    \hline\hline
-    \multicolumn{4}{l}{\footnotesize Standard errors in parentheses}\\
-    \multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+    \begin{tabular}{lccc} \hline
+     & (1) & (2) & (3) \\
+    VARIABLES & l\_pop\_share & l\_pop\_share & l\_pop\_share \\ \hline
+    \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} \\
+    l\_remote & -0.348*** & -0.182*** & -0.287*** \\
+    \vspace{4pt} & \begin{footnotesize}(0.0288)\end{footnotesize} & \begin{footnotesize}(0.0536)\end{footnotesize} & \begin{footnotesize}(0.0682)\end{footnotesize} \\
+    l\_pop &  & 0.0692*** & 0.0485** \\
+    \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}(0.0190)\end{footnotesize} & \begin{footnotesize}(0.0236)\end{footnotesize} \\
+    Constant & -5.701*** & -4.312*** & -5.489*** \\
+     & \begin{footnotesize}(0.375)\end{footnotesize} & \begin{footnotesize}(0.529)\end{footnotesize} & \begin{footnotesize}(0.675)\end{footnotesize} \\
+    \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} \\
+    State FE & \mbox{no} & \mbox{no} & \mbox{yes} \\
+    Observations & 815 & 815 & 815 \\
+     $R^2$ & 0.151 & 0.163 & 0.314 \\ \hline
+    \multicolumn{4}{c}{\begin{footnotesize} Robust standard errors in parentheses\end{footnotesize}} \\
+    \multicolumn{4}{c}{\begin{footnotesize} *** p$<$0.01, ** p$<$0.05, * p$<$0.1\end{footnotesize}} \\
     \end{tabular}
-    }
-    \caption{Regressions of log college share on log geography variables}
+   \caption{Regressions of log college share on log geography variables}
     \label{tab:col_reg}
 \end{table}
 
-In this section we document the covariance of our measure of geography, remoteness, with our measures of inequality, the skill premium and college share.  Regressions of the skill premium on remoteness and other variables are found in Table \ref{tab:skill_reg}.  Remoteness covaries negatively with the skill premium, although the coefficient is not significant untless the age ratio is included in the regression.  We find that the population of an MSA varies positively with the skill premium, a result that has been emphasized in other studies.  The covariance of remoteness and the skill premium is nearly the same size as its covariance with population, but in the opposite direction.
+In this section we document the covariance of our measure of geography, remoteness, with our measures of inequality, the college wage premium and college share.  Regressions of the skill premium on remoteness and other variables are found in Table \ref{tab:skill_reg}.  Remoteness covaries negatively with the skill premium, with an elasticity of 5\%.  We find that the population of a county varies positively with the skill premium, a result that has been emphasized in other studies.  That the coefficient on population loses significance with state fixed effects is a provocative result.  The covariance of remoteness and the skill premium is the same order of magnitude as the covariance of remoteness with population found in the literature, but in the opposite direction.
 
-In Table \ref{tab:col_reg} we report coefficient estimates from regressions of college ratio on the same regressors.  We find that remoteness covaries positively with the college premium, and as before the effect is only significant after controling for the age ratio.  This effect is surprising, as one might expect highly-educated workers to be disproportionately drawn to large cities in areas with low remoteness.  On the other hand, it makes sense that in remote areas where the skill premium is lower, we should find a larger relative supply of highly-educated workers.  As before, the magnitude of the population effect and the remoteness effect are similar.
+In Table \ref{tab:col_reg} we report coefficient estimates from regressions of college population ratio on the same regressors.  We find that remoteness covaries positively with the college population ratio.  Nearly everything said about the was before, the magnitude of the population effect and the remoteness effect are similar.  The one difference is the population remains significant after including state fixed effects.
 
-We have strong intuition for why the age ratio is positively correlated with the skill premium.  Older people earn more, so if highly-educated workers are older than less-educated workers, the skill premium will be higher.  We do not have such strong intuition for the strong negative correlation between the college share and the age ratio.  In words, MSA's with a high fraction of highly-educated workers, have relatively young highly-educated workers.
-
-An alternative method of controling for the age of workers is to limit our analysis to workers in a smaller age range.  Doing this significantly reduces the data available for us to calculate our regressors accurately.  As a robustness check, we present results in the appendix for only workers 35 to 50 years old.  The results are nearly the same as those found in our main analysis.
+The takeaway from the empirical section is that we have identified a new relationship in the data.  Relatively remote counties in the United States have relatively low college wage premia, and relatively low college population shares.  As has been found in the previous literature we find that relatively high population counties also have relatively high college wage premia and relatively high college population shares.  These two facts motivate the theory developed in the next section.
 
 \section{Theory}
 
-In the last section, we presented evidence that geography plays a role in shaping the skill premium and college shares.  In this section we develop an empirical model to help us understand the patterns we found, in particular that the skill premium decreases with the remoteness of a location, while the college share increases.  Next we discuss how such a model might be estimated.
+In the last section, we presented evidence that geography plays a role in shaping the college wage premium and college population shares.  In this section we develop a theoretical model to help us understand the patterns we found: that the college wage premium and college population share both decrease with the remoteness of a location while the college share increases.
 
-\subsection{Labor Supply}
+\subsection{Environment and Technology}
 
-We have a static model with a continuum of price-taking firms in each location, and two types of worker: skilled indexed by $H$, and unskilled indexed by $L$.  The utility of a worker in location $i$ is:
+The model is static, with a continuum of locations $J$, a continuum of skilled workers $L_H$, and a continuum of unskilled workers $L_L$.  Workers can choose to reside and work in any (single) location.  Firms in each location can produce a location-specific variety of a tradable final good with a constant elasticity production function using the two types of labor as inputs.  There is free entry of firms in each location.  Both workers and firms are price takers.
+
+\subsection{Worker's problem}
+
+The utility of a worker in location $i$ is:
 \begin{eqnarray}\label{eq:utility}
 	Q(i) u(i) \epsilon(i)
 \end{eqnarray} 
-where $Q(i)$ is utility from tradeables, $u(i)$ is the utility from exogenous amenities, and $\epsilon(i)$ is a worker's exogenous preference for location $i$.  Tradeable goods are differentiated by the origin of production, and $q(j,i)$ is consumer's consumption in $i$ from goods originated in location $j$. The aggregator $Q(i)$ in the utility function with $\sigma>0$ the elasticity of substitution is:
+where $Q(i)$ is utility from tradeables, $u(i)$ is the utility from exogenous amenities, and $\epsilon^h(i)$ is worker $h$'s exogenous preference for location $i$.  Tradeable goods are differentiated by the origin of production, and $q(j,i)$ is consumer's cojsumption in $i$ from goods originated in location $j$. The aggregator $Q(i)$ in the utility function with elasticity of substitution $\sigma>0$ is:
 \[
 	Q(i) = \left[\int_J q(j,i)^{\frac{ \sigma - 1}{\sigma}}~ dj\right]^{\frac{\sigma}{\sigma-1}},
 \]
-We suppose that worker location prefrences $\epsilon(i)$ are independent across workers and locations, and have a Type II Extreme Value distribution,
+We assume that worker location prefrences $\epsilon^h(i)$ are independent across workers and locations, and have a Type II Extreme Value distribution,
 \[
-\Pr(\epsilon^h(i) \leq \epsilon) = \exp(-\epsilon^{-\theta})
+    \Pr(\epsilon(i) \leq x) = \exp(-x^{-\theta})
 \]
-Workers are heterogeneous in terms of skill $s \in \{H,L\}$. A worker's wage in location $i$ is denoted by $w_s(i)$, and her budget constraint is 
+Workers are endowed with exogenous skill $s \in \{H,L\}$. A worker's wage in location $i$ is denoted by $w_s(i)$, and her budget constraint is 
 \begin{eqnarray}\label{eq:budget}
 	w_s(i) = \int_J p(j,i)q(j,i)~dj 
 \end{eqnarray}
-where $p(j,i)$ is price of good $j$ in destination $i$, and $J$ is the given set of locations.
+where $p(j,i)$ is price of good $j$ in destination $i$, and $J$ is the given set of locations.  The \emph{only} place skill type appears in the worker's problem, is through the wage's effect on the budget constraint.  Otherwise workers of both types have the same preferences.
 
 An worker has two types of decision to make.  She decides where to live, and how much of each good to consume.  Given a choice of location, the second problem is standard.  A worker of type $s$ in location $i$ spends $x_s(j,i)$ on goods produced in $j$,
 \begin{eqnarray}\label{eq:x_s}
@@ -205,7 +187,7 @@ where $P(i)$ is the CES price index,
 	P(i) = \left[\int_J p(j,i)^{1-\sigma}~ dj\right]^{\frac{1}{1-\sigma}}
 \end{eqnarray}
 
-The second decision a worker makes is where to live.  In order to characterize this decision, we need to introduce congestion forces.  We model them as in \textbf{allen arkolakis}:
+The second decision a worker makes is where to live.  In order to characterize this decision, we introduce congestion forces as in \citet{allen2014trade}:
 \begin{eqnarray}\label{eq:congestion}
 u(i) = \bar{u}(i)  n(i)^{\gamma}
 \end{eqnarray}
@@ -214,15 +196,20 @@ A worker with skill level $s$ faces the following discrete choice problem over l
 \begin{eqnarray} 
 \max_{i \in J}~ \frac{w_s(i)}{P(i)}u(i) \epsilon(i)  \nonumber
 \end{eqnarray}
-Using the properties of the Type-II extreme value distribution, within skill $s$ the ratio of labor supply equals
+Using the properties of the Type-II extreme value distribution, we can characterize the share of type-$s$ labor in location $i$ as:\footnote{Incidentally this equation gives the model its first testable prediction:
+    \begin{equation*}
+        \frac{\frac{w_H(i)}{w_L(i)}}{\frac{n_H(i)}{n_L(i)}^\frac{1}{\theta}} = \frac{\frac{w_H(j)}{w_L(j)}}{\frac{n_H(j)}{n_L(j)}^\frac{1}{\theta}}
+    \end{equation*}
+    A higher ratio of skilled workers to unskilled workers implies a higher skill premium in wages.}
+    
+
 \begin{eqnarray}
-	\frac{n_s(i)}{n_s(j)} = 
-	\Big[
+    \frac{n_s(i)}{n_s(j)} = \left(
 	\frac{w_s(i)u(i)/P(i)}
-	{w_s(j)u(j) /P(j)}
-	\Big]^{\theta} \nonumber  
+	{w_s(j)u(j) /P(j)}\right)^\theta
+    \label{eq:rel_pops}
 \end{eqnarray} 
-where $n_s(i)$ is population of workers with skill $s$ in location $i$.
+where $n_s(i)$ is population of workers with type $s$ in location $i$.
 The elasticity of relative labor supply to relative wages is:
 \[
 \frac{ \partial \Big(n_s(i)/n_s(j)\Big) \Big/
@@ -230,20 +217,26 @@ The elasticity of relative labor supply to relative wages is:
 {\partial \Big(w_s(i)/w_s(j)\Big) \Big/
 \Big(w_s(i)/w_s(j)\Big) } = \theta
 \]
-The variance of $\epsilon^h(i)$ is a decreasing function of $\theta$: the larger $\theta$, the smaller the variance. A larger $\theta$ implies that individual unobserved preferences for location are less important, and so workers are more willing to move in response to differences in wages, prices, or amenities ---supply curve is relatively flat.
-When $\theta$ is smaller, the variance is large, so supply curve is relatively steep: A larger change in wages is needed to attract one more percentage of workers. 
+The variance of $\epsilon(i)$ across both workers and locations is decreasing in $\theta$. A large $\theta$ implies that individual unobserved preferences for location are similar across locations. Small changes in wages, prices, or amenities induce large movements of workers.  Another way of putting it is that the supply curve of workers to a location is flat.  When $\theta$ is small, workers have widely varying preferences over locations, so that large changes in wages, prices, or amenities are necessary to induce movement.  That is, the supply curve of workers to a location is steep.
 
-Not all but marginal workers are indifferent between locations. For all $i \in J$, for each skill level, we define $W_s$ as the utility of the marginal worker,
+There is a lot of intuition for the way the model works here already.  A location with a higher relative wage for skilled workers will attract more workers, but it won't attract all the skilled workers.  Small changes in relative wages will induce small changes in relative populations.\footnote{In a model without preference heterogeneity, in equilibrium all populated locations must offer the same utility within skill type.  This means that a location which deviates and offers a slightly higher wage will attract \emph{all} workers.}
+
+Define the real-wage index $W_s$:
+\begin{equation*}
+    W_s \equiv \frac{1}{N_s}\int_{j=0}^{\|J\|}\left(w_s(j) u(j) / P(j)\right)^\theta dj
+\end{equation*}
+Here $N_s$ is the exogenously given total population of type-$s$ workers.  This index is a per-capita measure of welfare for workers of type $s$. Again using properties of the Type-II extreme value distribution, we derive the relationship for all $i \in J$:
 \begin{eqnarray}\label{eq:indiff}
-	 W_s \equiv \frac{w_s(i)} {P(i)} u(i) n_s(i)^{-1/\theta}
+    W_s = \left(\frac{w_s(i)} {P(i)} u(i) \right)^\theta \frac{1}{n_s(i)}
 \end{eqnarray}
+That is, this relationship between real wages and population is constant across locations.
 
 \subsection{Labor Demand}
-Each location has a representative firm with a CES production function using high- and low skill workers,
+Each location has a representative firm with a CES production function using skilled and undskilled workers,
 \begin{eqnarray}
 	 A(i)\Big[ \beta_H(i) n_H(i)^{\frac{\varepsilon-1}{\varepsilon}} + \beta_L(i) n_L(i)^{\frac{\varepsilon-1}{\varepsilon}} \Big]^{\frac{\varepsilon}{\varepsilon-1}} \nonumber
 \end{eqnarray}
-where $A(i)$ is total factor productivity in location $i$. $\varepsilon>0$ is the elasticity of substitution between high and low skill workers. $\beta_H(i)>0$ and $\beta_L(i)>0$ are factor intensities. In the model, differences in factor productivity is the \textit{only} determinant of skill.
+where $A(i)$ is total factor productivity in location $i$. $\varepsilon>0$ is the elasticity of substitution between high and low skill workers. $\beta_H(i)>0$ and $\beta_L(i)>0$ are factor intensities. In the model, differences in factor productivities (and agglomeration) are the \textit{only} things which separate skilled and unskilled labor.  Other models in the inequality literature, such as \textbf{PHD guy, who else?}, build in more fundamental differences in skilled and unskilled preferences or taste for amenities.
 By cost minimization, the unit cost of production equals
 \begin{eqnarray}\label{eq:unit_cost}
 	 \frac{c(i)}{A(i)} ,~where~~c(i)=\Big[ \beta_H(i)^{\varepsilon} w_H(i)^{1-\varepsilon} + \beta_L(i)^{\varepsilon} w_L(i)^{1-\varepsilon}\Big]^{\frac{1}{1-\varepsilon}}
@@ -256,107 +249,106 @@ Following the literature, we distinguish two sorts of agglomeration forces. Firs
 \begin{eqnarray}\label{eq:agglom_general}
 A(i) = \bar{A}(i) n(i)^{\alpha}
 \end{eqnarray}
-with $\alpha>0$. This agglomeration force changes productivity of both low and high skill workers. A Krugman type monopolistic competition generates similar force through endogenous measure of firms. In addition, there is overwhelming evidence that agglomeration forces are stronger for high skill workers; suggesting that high skill individuals are more productive through exchanging ideas with each other. Motivated by these findings, we let a high skill individual be more productive through concentration of high skill workers,
+with $\alpha>0$. This agglomeration force changes productivity of both low and high skill workers. A Krugman type monopolistic competition generates similar force through endogenous measure of firms. In addition, there is overwhelming evidence that agglomeration forces are stronger for high skill workers\textbf{CITATION}, suggesting that high skill individuals are more productive through exchanging ideas with each other. Motivated by these findings, we let a high skill individual be more productive through concentration of high skill workers,
 \begin{eqnarray}\label{eq:agglom_specific}
 	\beta_H(i) & = & \bar{\beta}_H(i) n_H(i)^{\varphi} \nonumber \\
 	\beta_L(i) & = & \bar{\beta}_L(i)
 \end{eqnarray}
-[skilled-biased technological change, motivated by the fact that population share of high-skilled is higher in locations where skill premium is also higher]
 
+As was suggested above, the intuition for the mechanisms in the model is now available.  Larger cities will have more productive skilled workers, but unskilled workers will be exactly as productive everywhere.  Firms in relatively large cities will therefore demand a relatively high share of skilled workers.  In order to attract these workers, the location will need a relatively high skill premium.
 
 Finally, markets are perfectly competitive. Let $d(j,i)$ be the trade costs of shipping a good from $j$ to $i$. Price of a good produced in location $j$ and consumed in location $i$, $p(j,i)$, equals $c(j)d(j,i)/A(j)$. 
 
-\subsection{Equilibrium}
+\subsection{Equilibrium Definition}
 
-Definition. A \textit{spatial equilibrium} is a set of $w_H(i)$, $w_L(i)$, $n_H(i)$, and $n_L(i)$ such that
-\begin{itemize}
+A \textit{spatial equilibrium} is a set of $w_H(i)$, $w_L(i)$, $n_H(i)$, and $n_L(i)$ such that:\footnote{There is a bit hidden in this definition, as we have already used perfect competition to give us goods prices $p(j,i)$ given wages, the consumer's optimization problem to give us demand $x(j,i)$ given prices and wages, and the firm's optimization problem to give us relative labor demand \eqref{eq:input_share}}
+\begin{enumerate}
+\item Labor shares in locations are according to (\ref{eq:indiff}).
+\item Demand and supply of skilled and unskilled labor equal in each location.
 \item Goods market clear
 \begin{eqnarray}\label{eq:goods_mkt_clear}
 	w_H(i) n_H(i) =  b(i) \int_J \sum_{s \in \{H,L\}} n_s(i)x_s(j,i) ~dj 
 \end{eqnarray}
 where $x_s(j,i)$ is given by (\ref{eq:x_s}), and $b(i)$ is given by (\ref{eq:input_share}).
-\item Marginal workers are indifferent across locations according to (\ref{eq:indiff}).
 \item Feasible allocation of labor, $\int_J n_H(j) ~dj = N_H$ and $\int_J n_L(j) ~dj = N_L$.
-\end{itemize}
+\end{enumerate}
 
 \vspace{5mm}
-\textit{Equilibrium Analysis.}~~ On the demand side of labor markets, 
+\subsection{Equilibrium Analysis}
+
+Before we derive a small number of equations characterizing equilibrium, we first discuss features of the model equilibrium.  In particular, we show that without both heterogeneous location preferences as well as agglomeration forces, our model would not generate skill premia location specific skill premia in wages.  However, we need no other type of skill specific preferences or productivity to generate this result.
+
+Perfect competition gives us that the income share of skilled labor equals firm's optimal input share on skilled labor:
 \begin{eqnarray}
-	b(i) \equiv \frac{1}{1 + \frac{n_L(i)}{n_H(i)} \frac{w_L(i)}{w_H(i)}} = \frac{1}{1 + \Big(\frac{\beta_L(i)}{\beta_H(i)}\Big)^{\varepsilon} \Big(\frac{w_L(i)}{w_H(i)}\Big)^{1-\varepsilon}} \nonumber
+\frac{w_H(i) n_H(i)}{w_H(i) n_H(i) + w_L(i) n_L(i)}  = \frac{\beta_H(i)^{\varepsilon} w_H(i)^{1-\varepsilon}}{\beta_H(i)^{\varepsilon} w_H(i)^{1-\varepsilon} + \beta_L(i)^{\varepsilon} w_L(i)^{1-\varepsilon}} \nonumber
 \end{eqnarray}
-where the LHS is an equivalent definition for high skill input share, and the RHS is equivalent to (\ref{eq:input_share}). Therefore,
-\begin{eqnarray}\label{eq:labor_demand_general}
-	\Big[\frac{\beta_L(i)}{\beta_H(i)}\Big]^{\varepsilon} \Big[\frac{w_L(i)}{w_H(i)}\Big]^{-\varepsilon}= \frac{n_L(i)}{n_H(i)} 
-\end{eqnarray}
-Under our specification, equation (\ref{eq:labor_demand_general}) yields
+With some algebra, and substituting in aggomeration, we get:
 \begin{eqnarray}\label{eq:labor_demand}
 	\omega(i) \equiv \frac{w_H(i)}{w_L(i)} = \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)}\Big[ \frac{n_H(i)}{n_L(i)} \Big]^{-1/\varepsilon}n_H(i)^{\varphi/\varepsilon}
 \end{eqnarray}
-where $\omega(i)$ is skill premium in location $i$.
+where $\omega(i)$ is the skill premium in location $i$.
 
-According to welfare equalization for marginal workers, equation (\ref{eq:indiff}), the supply side of labor markets imply
+Using equation (\ref{eq:indiff}), the supply side of labor markets imply:\footnote{As far as we are aware, other models of inequality in the literature assume fundamental differences in preferences between skilled and unskilled workers.  To derive \eqref{eq:labor_supply} we are using the fact that skilled and unskilled workers face the same amenities, as well as the same prices.}
 \begin{eqnarray}\label{eq:labor_supply}
-	\omega(i) = \frac{W_H}{W_L} \Big[ \frac{n_H(i)}{n_L(i)} \Big]^{\theta}
+    \omega(i) = \Big[\frac{W_H}{W_L} \frac{n_H(i)}{n_L(i)} \Big]^{\frac{1}{\theta}}
 \end{eqnarray}
-Labor markets clear when skill premia, $[\omega(i)]_{i \in J}$, satisfy the pairs of demand by (\ref{eq:labor_demand}) and supply by (\ref{eq:labor_supply}). By equations \ref{eq:labor_demand}--\ref{eq:labor_supply},
+Labor markets clear when skill premia, $\{\omega(i)\}_{i \in J}$, satisfy the pairs of demand by (\ref{eq:labor_demand}) and supply by (\ref{eq:labor_supply}):
 \begin{eqnarray}\label{eq:labor_demand_supply}
-n_L(i) = \Big( \frac{W_L}{W_H} \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)} \Big)^{-\varepsilon/(1+\theta \varepsilon)} \Big( n_H(i) \Big)^{1-\varphi/(1+\theta \varepsilon)}
+    n_L(i) = \left( \left(\frac{W_H}{W_L}\right)^{\frac{1}{\theta}} \frac{\bar{\beta}_L(i)}{\bar{\beta}_H(i)} \right)^{\frac{\theta \varepsilon}{ \theta+ \varepsilon}} n_H(i)^{1-\frac{\theta \varphi}{\theta+\varepsilon}}
 \end{eqnarray}
-Skill share, $n_H/n_L$, is determined solely by exogenous parameters if $\varphi=0$. Skill premium, $w_H/w_L$, equalizes across locations if $\theta=\infty$. In case $\varphi=0$, high skill workers have no advantage from agglomeration effects. Spatial variations in skill share is endogenously derived by skill-specific agglomeration, but this alone does not translate to variations in skill premia. We also need $\theta$ to be finite, or equivalently the variance of unobserved preferences to be positive. When the variance is larger, workers are less willing to migrate in response to changes in wages.
-Suppose because of agglomeration effects for high skill workers, there is more demand to attract high skill workers. When unobserved preferences do matter, high skill workers do not fully capitalize this opportunity as some of them are so attached to certain cities. In this respect, our model departs from Rosen-Roback-AA by highlighting the role of labor supply elasticity ---not \textit{all} but only the \textit{marginal worker} is indifferent between locations; and the interaction of labor supply elasticity with the density of high skill workers.
+The share of skilled population $n_H/n_L$ is constant across locations if skilled agglomeration is zero, $\varphi=0$. From \eqref{eq:labor_supply} we see that if the share of skilled population is constant everywhere, so is the skill premium.  Also from \eqref{eq:labor_supply}, we see that if $\theta\rightarrow \infty$ the skill premium is constant across (populated) locations.\footnote{More intuition can be gleaned from \eqref{eq:labor_demand_supply}.  If $\theta \rightarrow 0$, we see that the share of skilled population will also be constant, as no one cares about wages, only their location preference shocks which are symmetric.}  In order to have equilibria with varying skill premia, we need \emph{both} $\theta$ to be finite and $\varphi >0$.  In words, we need both variance in unobserved location preferences and the agglomeration force for skilled workers.  Large cities demand more skilled workers due to agglomeration, but when unobserved preferences matter, skilled workers do not fully adjust to a wage increase as some of them are very attached to a particular city. In this respect, our model departs from a standard Rosen-Roback (or Allen-Arkolakis) model by highlighting the interaction of agglomeration and the labor supply elasticity. 
 
-Define $\rho_H(i) = n_H(i)/N_H$ as the density of high skill labor. Equation (\ref{eq:labor_demand_supply}) and $ N_L = \int_J n_L(i)~di $ pin down $W_H/W_L$ only as a function of $\rho_H(i)$,
-%\begin{eqnarray}
-%\frac{W_H}{W_L} =
-%\Big(N_L\Big)^{(1+\theta \varepsilon)/\varepsilon}\Bigg[ \int_J \Big(  \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)} \Big)^{-\varepsilon/(1+\theta \varepsilon)} \Big( n_H(i) \Big)^{1-\varphi/(1+\theta \varepsilon)}~di \Bigg]^{-(1+\theta \varepsilon)/\varepsilon}
-%\end{eqnarray}
-\begin{eqnarray}\label{eq:WHtoL}
-\frac{W_H}{W_L} =
-\underbrace{\Big(N_H/N_L\Big)^{-(\theta+ \varepsilon)/\theta\varepsilon}}_{\mbox{scarcity}} \times \underbrace{N_H^{\varphi/\varepsilon}}_{\mbox{agglom.}} 
-\times
-\underbrace{\Bigg[ \int_J \Big( \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)} \Big)^{-\theta\varepsilon/(\theta+\varepsilon)} \Big( \rho_H(i) \Big)^{(\theta(1-\varphi)+\varepsilon)/(\theta+\varepsilon)}~di \Bigg]^{-(\theta+ \varepsilon)/\theta\varepsilon}}_{\mbox{allocation}} 
-\end{eqnarray}
-Equation (\ref{eq:WHtoL}) decomposes the three forces behind real well-being inequality of marginal workers: 1) Aggregate scarcity of high skill labor, 2) Aggregate agglomeration advantage of high skill workers, 3) A weighted average of relative productivities in which weights are the density of high skill labor. While the  first two behave at the aggregate, the third relates to the distribution of population. In addition, note that agglomeration is less effective when the elasticity of substitution between high and low skill labor, $\varepsilon$, is higher.
+% Define $\rho_H(i) = n_H(i)/N_H$ as the density of high skill labor. Equation (\ref{eq:labor_demand_supply}) and $ N_L = \int_J n_L(i)~di $ pin down $W_H/W_L$ only as a function of $\rho_H(i)$,
+% %\begin{eqnarray}
+% %\frac{W_H}{W_L} =
+% %\Big(N_L\Big)^{(1+\theta \varepsilon)/\varepsilon}\Bigg[ \int_J \Big(  \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)} \Big)^{-\varepsilon/(1+\theta \varepsilon)} \Big( n_H(i) \Big)^{1-\varphi/(1+\theta \varepsilon)}~di \Bigg]^{-(1+\theta \varepsilon)/\varepsilon}
+% %\end{eqnarray}
+% \begin{eqnarray}\label{eq:WHtoL}
+% \frac{W_H}{W_L} =
+% \underbrace{\Big(N_H/N_L\Big)^{-(\theta+ \varepsilon)/\theta\varepsilon}}_{\mbox{scarcity}} \times \underbrace{N_H^{\varphi/\varepsilon}}_{\mbox{agglom.}} 
+% \times
+% \underbrace{\Bigg[ \int_J \Big( \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)} \Big)^{-\theta\varepsilon/(\theta+\varepsilon)} \Big( \rho_H(i) \Big)^{(\theta(1-\varphi)+\varepsilon)/(\theta+\varepsilon)}~di \Bigg]^{-(\theta+ \varepsilon)/\theta\varepsilon}}_{\mbox{allocation}} 
+% \end{eqnarray}
+% Equation (\ref{eq:WHtoL}) decomposes the three forces behind real well-being inequality of marginal workers: 1) Aggregate scarcity of high skill labor, 2) Aggregate agglomeration advantage of high skill workers, 3) A weighted average of relative productivities in which weights are the density of high skill labor. While the  first two behave at the aggregate, the third relates to the distribution of population. In addition, note that agglomeration is less effective when the elasticity of substitution between high and low skill labor, $\varepsilon$, is higher.
 
-\textit{Integral Equations.}~~Total income in $i$ equals
-$\frac{1}{b(i)} w_H(i)n_H(i)$. Using goods market clearing condition by equations (\ref{eq:goods_mkt_clear}), 
+\subsection{Equilibrium equations}
+
+In this section we characterize our equilibrium with only two integral equations.  These integral equations will be the basis of our empirical exercise.  
+
+By simply inverting the definition \eqref{eq:input_share} of input share $b(i)$, we get total income in $i$ equal to $\frac{1}{b(i)} w_H(i)n_H(i)$. Using the goods market clearing condition, equation (\ref{eq:goods_mkt_clear}), we derive: 
 \begin{eqnarray}
 	w_H(i) n_H(i) b(i)^{-1} = 
 	\int_J \Big[ \frac{c(i) d(i,j)}{A(i) P(j)} \Big]^{1-\sigma} w_H(j) n_H(j) b(j)^{-1} ~dj \nonumber
 \end{eqnarray}
 
-Equations (\ref{eq:unit_cost}) and (\ref{eq:input_share}) imply that 
+Equations (\ref{eq:unit_cost}) and (\ref{eq:input_share}) further imply that 
 \begin{eqnarray}\label{eq:ctilde}
 	c(i) & = & \tilde{c}(i) w_H(i) \nonumber \\
-	where~~~ \tilde{c}(i) & = & 
+    \mbox{where}~~~ \tilde{c}(i) & = & 
 	\Big[\bar{\beta}_H(i) n_H(i)^{\varphi}\Big] ^{\frac{\varepsilon}{1-\varepsilon}} \Big[b(i)\Big]^{\frac{-1}{1-\varepsilon}}
 \end{eqnarray}
-We replace for $c(i)$ from (\ref{eq:ctilde}) and price index from welfare equalization for marginal workers (\ref{eq:indiff}) into the integral equation. After some algebra,
+Replacing $c(i)$ with $\tilde{c}(i)$ in the above integral equation and also replacing the price index using (\ref{eq:indiff}), after some algebra we get:
 \begin{eqnarray}\label{eq:system1}
 	& & A(i)^{1-\sigma} \tilde{c}(i)^{\sigma-1} n_H(i)  w_H(i)^{\sigma}  b(i)^{-1}  \nonumber \\
 	& & =  
-	W_H^{1-\sigma}
+    W_H^{\frac{1-\sigma}{\theta}}
 	\int_J d(i,j)^{1-\sigma} u(j)^{\sigma-1} n_H(j)^{(\theta+1-\sigma)/\theta} w_H(j)^{\sigma} b(j)^{-1}  ~dj
 \end{eqnarray}
-By replacing price index from welfare equalization (\ref{eq:indiff}) into (\ref{eq:price_index}) 
-\begin{eqnarray}
-	\Big[ \frac{w_H(i) u(i) n_H(i)^{-1/\theta}}{W_H } \Big]^{1-\sigma} = \int_J c(j)^{1-\sigma}d(j,i)^{1-\sigma}A(j)^{\sigma-1}~ dj \nonumber
-\end{eqnarray}
-which results
+Again substituting the price index from (\ref{eq:indiff}) and $\tilde{c}(i)$ into (\ref{eq:price_index}), we get another integral equation: 
 \begin{eqnarray}\label{eq:system2}
  	& &  u(i)^{1-\sigma} n_H(i)^{(\sigma-1)/\theta} w_H(i)^{1-\sigma}  = \nonumber \\ 
  	& & 
- 	W_H^{1-\sigma}
+    W_H^{\frac{1-\sigma}{\theta}}
  	\int_J  d(j,i)^{1-\sigma} A(j)^{\sigma-1}  \tilde{c}(j)^{1-\sigma} w_H(j)^{1-\sigma}
  	~ dj
 \end{eqnarray}
-Equations \ref{eq:system1}--\ref{eq:system2} give us two systems of integral equations. Note that in case $\varphi=0$ and $\theta=\infty$, the integral equations collapse to Allen and Arkolakis (2014). 
+Equations \ref{eq:system1}--\ref{eq:system2} give us two systems of integral equations. If $\varphi=0$ and $\theta=\infty$, the integral equations collapse to those in \citet{allen2014trade}. 
 
-By the following relation, we can reduce the two systems into one: 
+We can reduce our system further using a trick from \citet{allen2014trade}.  If either of the systems of integral equation hold allong with the following relation, both systems of integral equations must hold:
 \begin{eqnarray}\label{eq:systems_relation}
 	\frac{w_H(i)^{\sigma}n_H(i)A(i)^{1-\sigma}\tilde{c}(i)^{\sigma-1}}{b(i)} = \lambda w_H(i)^{1-\sigma} u(i)^{1-\sigma} n_H(i)^{(\sigma-1)/\theta}
 \end{eqnarray}
-where $\lambda > 0$ is a constant.
+where $\lambda > 0$ is some constant.
 
 \subsection{Solution Algorithm}
 
@@ -386,6 +378,6 @@ In iteration $t$, update $f^{(t)}(i)$ according to
 \newpage
 
 \bibliographystyle{apa.bst}
-\bibliography{/home/veryshuai/Documents/bib/biglist.bib}
+\bibliography{/home/veryshuai/Documents/research/bib/biglist}
 
 \end{document}
