@@ -115,14 +115,13 @@ In Table \ref{tab:col_reg} we report coefficient estimates from regressions of c
 The takeaway from the empirical section is that we have identified a new relationship in the data.  Relatively remote counties in the United States have relatively low college wage premia, and relatively low college population shares.  As has been found in the previous literature we find that relatively high population counties also have relatively high college wage premia and relatively high college population shares.  These two facts motivate the theory developed in the next section.
 
 % This table was done using estout package in stata, which is why the code looks so ugly!
-\begin{table}[H]
+\begin{table}
     \centering
-    \setlength{\tabcolsep}{14pt} % General space between cols (6pt standard)
-    \renewcommand{\arraystretch}{.8} % General space between rows (1 standard)
-    \begin{tabular}{lccc} \midrule
-    \multicolumn{4}{l}{dependent variable: log college premium } \\ \midrule
-	& \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} \\
-    log remoteness & -0.0562*** & -0.0367*** & -0.0310** \\
+    \begin{tabular}{lccc} \hline
+     & (1) & (2) & (3) \\
+    VARIABLES & l\_wage\_prem & l\_wage\_prem & l\_wage\_prem \\ \hline
+    \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} \\
+    l\_remote & -0.0562*** & -0.0367*** & -0.0310** \\
     \vspace{4pt} & \begin{footnotesize}(0.00558)\end{footnotesize} & \begin{footnotesize}(0.0113)\end{footnotesize} & \begin{footnotesize}(0.0125)\end{footnotesize} \\
     log population &  & 0.00809** & 0.00432 \\
     \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}(0.00391)\end{footnotesize} & \begin{footnotesize}(0.00431)\end{footnotesize} \\
@@ -131,7 +130,7 @@ The takeaway from the empirical section is that we have identified a new relatio
     \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} \\
     State FE & \mbox{no} & \mbox{no} & \mbox{yes} \\
     Observations & 815 & 815 & 815 \\
-     $R^2$ & 0.119 & 0.124 & 0.307 \\ \midrule
+     $R^2$ & 0.119 & 0.124 & 0.307 \\ \hline
     \multicolumn{4}{c}{\begin{footnotesize} Robust standard errors in parentheses\end{footnotesize}} \\
     \multicolumn{4}{c}{\begin{footnotesize} *** p$<$0.01, ** p$<$0.05, * p$<$0.1\end{footnotesize}} \\
     \end{tabular}
@@ -141,14 +140,13 @@ The takeaway from the empirical section is that we have identified a new relatio
 
 
 % This table was done using estout package in stata, which is why the code looks so ugly!
-\begin{table}[H]
+\begin{table}
     \centering
-    \setlength{\tabcolsep}{14pt} % General space between cols (6pt standard)
-    \renewcommand{\arraystretch}{.8} % General space between rows (1 standard)
-    \begin{tabular}{lccc} \midrule
-    \multicolumn{4}{l}{dependent variable: log college share } \\ \midrule
-	& \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} \\
-    log remoteness & -0.348*** & -0.182*** & -0.287*** \\
+    \begin{tabular}{lccc} \hline
+     & (1) & (2) & (3) \\
+    VARIABLES & l\_pop\_share & l\_pop\_share & l\_pop\_share \\ \hline
+    \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} \\
+    l\_remote & -0.348*** & -0.182*** & -0.287*** \\
     \vspace{4pt} & \begin{footnotesize}(0.0288)\end{footnotesize} & \begin{footnotesize}(0.0536)\end{footnotesize} & \begin{footnotesize}(0.0682)\end{footnotesize} \\
     log population &  & 0.0692*** & 0.0485** \\
     \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}(0.0190)\end{footnotesize} & \begin{footnotesize}(0.0236)\end{footnotesize} \\
@@ -157,7 +155,7 @@ The takeaway from the empirical section is that we have identified a new relatio
     \vspace{4pt} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} & \begin{footnotesize}\end{footnotesize} \\
     State FE & \mbox{no} & \mbox{no} & \mbox{yes} \\
     Observations & 815 & 815 & 815 \\
-     $R^2$ & 0.151 & 0.163 & 0.314 \\ \midrule
+     $R^2$ & 0.151 & 0.163 & 0.314 \\ \hline
     \multicolumn{4}{c}{\begin{footnotesize} Robust standard errors in parentheses\end{footnotesize}} \\
     \multicolumn{4}{c}{\begin{footnotesize} *** p$<$0.01, ** p$<$0.05, * p$<$0.1\end{footnotesize}} \\
     \end{tabular}
@@ -382,6 +380,28 @@ We are currently in the process of estimating the model, but the results are not
 Imagine three cities called New York, Chicago, and State College.  There is a highway running between New York and Chicago, but to get from State College to either city, one must travel over low quality mountain roads.  Suppose that other than the transportation infrastructure, everything else in the three cities is symmetric.  The situation is as in Figure ? 
 
 
+\begin{table}
+\centering
+\begin{tabular}{lll}
+\hline \hline
+Parameter               & Baseline Value & Description                                           \\ \hline
+$\sigma$                & 4              & elas. of sub. across goods                            \\
+$\epsilon$              & 2              & elas. of sub. across labor                            \\
+$\gamma$                & -0.2           & congestion strength                                   \\
+$\alpha$                & 0.1            & common agglom. force                                  \\
+$\beta_H(i)$            & 0.5            & high factor intensity                                 \\
+$\beta_L(i)$            & 0.5            & high factor intensity                                 \\
+$\varphi$               & 0.1            & high-skill agglomeration force                        \\
+$\bar{A}(i)$            & 1              & TFP in all locations                                  \\
+$\bar{U}(i)$            & 1              & Amenities in all locations                            \\
+$d_{\tiny \mbox{NY,CH}}$ & 1.2            & Distance between New York and Chicago                 \\
+$d_{\tiny \mbox{NY,SC}}$ & 1.8            & Distance between New York (Chicago) and State College \\
+\hline
+\end{tabular}
+\caption{Calibrated parameters for the simulation}
+\label{tab:cal_par}
+\end{table}
+
 The experiment we will run is to improve the quality of the mountain road leading to the highway.  Table \ref{tab:cal_par} presents our somewhat arbitrarily calibrated parameters.  Every city is identical apart from distance costs, and labor is identical except for the high skill agglomeration force $\varphi = 0.1$.
 
 The experiment is to do comparative statics, gradually reducing the transportation costs between State College and the two other cities, until the transportation costs are symmetric as well.  At each level of transportation cost, we solve the model.
@@ -390,6 +410,32 @@ In Figure \ref{fig:sim_res}, we present the results of our simulation.  We see t
 
 Finally, the relative expected welfare of skilled workers falls.  That is, the decrease in transportation costs benefits unskilled workers more than it benefits skilled workers.  Although the cheaper goods benefit skilled workers, since the population of skilled workers falls in New York and Chicago, skilled workers lose a bit of their agglomeration advantage.  Typically models of inequality and trade predict that skilled workers gain more than unskilled workers, a result that is reversed in our model which allows workers to move between cities.
 
+\begin{figure}[ht!]
+
+\subfloat[Skilled welfare]
+{\label{fig:abs_wel_skilled}
+\includegraphics[width=0.5\textwidth]{pics/mr_welfarehigh.png}}
+\subfloat[Unskilled welfare]{
+\label{fig:abs_wel_unskilled}
+\includegraphics[width=0.5\textwidth]{pics/mr_welfarehigh.png}}
+
+\subfloat[Total population]{
+\label{fig:pop_shr}
+\includegraphics[width=0.5\textwidth]{pics/mr_populationshare.png}}
+\subfloat[Skilled population share]{
+\label{fig:skl_shr}
+\includegraphics[width=0.5\textwidth]{pics/mr_skillshare.png}}
+
+\subfloat[Skilled wage premium]{
+\label{fig:skl_prm}
+\includegraphics[width=0.5\textwidth]{pics/mr_skillpremium.png}}
+\subfloat[Relative welfare (skilled to unskilled)]{
+\label{fig:rel_wel}
+\includegraphics[width=0.5\textwidth]{pics/mr_welfareH2L.png}}
+
+\centering
+\caption{\label{fig:sim_res} Reducing cost of reaching State College}
+\end{figure}
 
 \section{Conclusion}
 
@@ -397,11 +443,46 @@ We find that remote cities have both a relatively low college wage premium, and 
 
 Our model is rich enough to estimate using American data.  We are currently in the process of estimating the model.  Once the model is estimated, we will run counterfactuals relating trade costs to changes in the distribution of nominal and real wage inequality.  These results will be added to this working paper when they are available.
 
+% \begin{figure}[!ht]
+% \centering
+% \subfloat[high skill util]{ \includegraphics[scale=.35]{pics/mr_welfarehigh.png}}
+% \subfloat[low skill util]{ \includegraphics[scale=.35]{pics/mr_welfarelow.png}}
+% \caption{Welfare changes by skill type}
+% \label{fig:abs_wel}
+% \end{figure}
+% 
+% \begin{figure}[!ht]
+% \centering
+% \includegraphics[scale=.4]{pics/mr_populationshare.png}
+% \label{fig:pop_shr}
+% \caption{Total population share}
+% \end{figure}
+% 
+% \begin{figure}[!ht]
+% \centering
+% \includegraphics[scale=.4]{pics/mr_skillshare.png}
+% \label{fig:skl_shr}
+% \caption{Skilled population share}
+% \end{figure}
+% 
+% \begin{figure}[!ht]
+% \centering
+% \includegraphics[scale=.4]{pics/mr_skillpremium.png}
+% \label{fig:skl_prm}
+% \caption{Skilled wage premium}
+% \end{figure}
+% 
+% \begin{figure}[!ht]
+% \centering
+% \includegraphics[scale = 0.4]{pics/mr_welfareH2L.png}
+% \label{fig:rel_wel}
+% \caption{Relative welfare change, skilled over unskilled}
+% \end{figure}
+
 \newpage
 
 \bibliographystyle{apa.bst}
-%\bibliography{/home/veryshuai/Documents/bib/biglist}
-\bibliography{biglist}
+\bibliography{/home/veryshuai/Documents/bib/biglist}
 
 \appendix
 \section{Solution Algorithm}
