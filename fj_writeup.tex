@@ -34,9 +34,9 @@
 
 Inequality has long fascinated economists, and growing income inequality has been recently and heatedly discussed in public forums.\footnote{It is not every year that a 700-page collection of charts and academic theory on inequality is a New York Times bestseller.} A remarkable fact emerging from this discussion is the strong positive relationship between wage inequality and city size \citep{baum2012understanding}.  In this paper, we add to the study of inequality and distribution of economic activity in two ways. First, we document new facts on the interaction of geography with inequality. Second, we develop a quantifiable model which explains our findings and their implications. In particular, we study the effects of improving trade infrastructure on wage and welfare inequality.
 
-Our simulation results show that improving trade infrastructure benefits both types of labor, but low skill labor benefits more.  Typically models of inequality and trade predict that skilled workers gain more than unskilled workers \citep{hummels2014wage} \textbf{NEED MORE THEORY}, a result that is reversed in our model which allows for workers to move between cities.
-
 Our first contribution is to document facts about inequality and geography.  We assign to each American city a measure of remoteness meant to capture its distance from all other cities.  We then show that this measure correlates negatively with the skill premium, the ratio of the mean wage of college degree to the mean wage of non-college degree workers. That is, wage inequality is lower in remote cities. On the other hand, the less remote a city is, the higher its share of college degree workers. To our knowledge, our paper is the first to document these two facts.
+
+Our simulation results show that improving trade infrastructure benefits both types of labor, but low skill labor benefits more.  Better infrastructure tends to spread populations out, so that skilled workers lose some of their agglomeration advantage over unskilled workers.  Typically models of inequality and trade predict that skilled workers gain more than unskilled workers \citep{antras2006offshoring}, a result that is reversed in our model which allows for workers to move between cities.
 
 The literature has developed little in the way of a unified framework that incorporates both geography and inequality in the spatial economy. On one hand, economic geography examines the role of trade costs in determining spatial patterns of economic activity. This literature does not address inequality but welfare at the aggregate.  A classic example is \citep{krugman1991increasing}, and a more recent one is \citet{allen2014trade}. On the other hand, recent models of spatial inequality often treat cities as isolated. Workers in a city interact with each other but cities in a nation either do not trade or trade costlessly \citep{davis2014comparative}. Since the geographic location of a city relative to other cities remains irrelevant, this literature cannot address the interaction of geography with inequality. By including costly trade between cities in a model of mobile heterogeneous labor, we bridge the gap.
 
@@ -99,10 +99,10 @@ Table \ref{tab:sum_stats} contains some descriptive statistics.  Figure \ref{fig
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[Remoteness]{\includegraphics[width=.7\textwidth]{pics/rem.jpeg}}\quad
-  \subfloat[Population]{\includegraphics[width=.7\textwidth]{pics/pop.jpeg}}\\
-  \subfloat[Skill Premium]{\includegraphics[width=.7\textwidth]{pics/college_wage_premium_alt.jpeg}}\quad
-  \subfloat[College Share]{\includegraphics[width=.7\textwidth]{pics/college_pop_ratio.jpeg}}
+  \subfloat[Remoteness]{\includegraphics[width=.5\textwidth]{pics/rem.jpeg}}\quad
+  \subfloat[Population]{\includegraphics[width=.5\textwidth]{pics/pop.jpeg}}\\
+  \subfloat[Skill Premium]{\includegraphics[width=.5\textwidth]{pics/college_wage_premium_alt.jpeg}}\quad
+  \subfloat[College Share]{\includegraphics[width=.5\textwidth]{pics/college_pop_ratio.jpeg}}
   \caption{Counties by data feature}
   \label{fig:geo}
 \end{figure}
@@ -374,8 +374,7 @@ There are two ``endogenous'' variables hidden in \eqref{eq:system1} - \eqref{eq:
 
 We are currently in the process of estimating the model, but the results are not ready yet.  At the moment, we present a simulation of the model, calibrated to replicate patterns we see in the data.  We find that improving the technology for trade, say by building a new highway, benefits the unskilled more than it benefits the skilled.  This result is at odds with the result from the outsourcing literature that increases in trade tend to either harm unskilled labor, or at least benefit unskilled labor less than skilled labor \citep{hummels2014wage}.
 
-Imagine three cities called New York, Chicago, and State College.  There is a highway running between New York and Chicago, but to get from State College to either city, one must travel over low quality mountain roads.  Suppose that other than the transportation infrastructure, everything else in the three cities is symmetric.  The situation is as in Figure ? 
-
+Imagine three cities called New York, Chicago, and State College.  There is a highway running between New York and Chicago, but to get from State College to either city, one must travel over low quality mountain roads.  Suppose that other than the transportation infrastructure, everything else in the three cities is symmetric.
 
 \begin{table}
 \centering
@@ -399,9 +398,7 @@ $d_{\tiny \mbox{NY,SC}}$ & 1.8            & Distance between New York (Chicago) 
 \label{tab:cal_par}
 \end{table}
 
-The experiment we will run is to improve the quality of the mountain road leading to the highway.  Table \ref{tab:cal_par} presents our somewhat arbitrarily calibrated parameters.  Every city is identical apart from distance costs, and labor is identical except for the high skill agglomeration force $\varphi = 0.1$.
-
-The experiment is to do comparative statics, gradually reducing the transportation costs between State College and the two other cities, until the transportation costs are symmetric as well.  At each level of transportation cost, we solve the model.
+The experiment we will run is to improve the quality of the mountain road leading to the highway.  Table \ref{tab:cal_par} presents our somewhat arbitrarily calibrated parameters.  Every city is identical apart from distance costs, and labor is identical except for the high skill agglomeration force $\varphi = 0.1$.  The experiment is to do comparative statics, gradually reducing the transportation costs between State College and the two other cities, until the transportation costs are symmetric as well.  At each level of transportation cost, we solve the model.
 
 In Figure \ref{fig:sim_res}, we present the results of our simulation.  We see that lowering transportation costs raises expected welfare for both skill types.  Lower transportation costs mean that goods from State College are cheaper in the other cities, and goods from the other cities are cheaper in State College.  Lowering the transportation costs also increase the population of State College, and increase its relative population of skilled workers.  As predicted, the skilled wage premium also rises in State College, and falls in New York and Chicago.
 
