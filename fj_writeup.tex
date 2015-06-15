@@ -180,7 +180,7 @@ where $Q(i)$ is utility from tradeables, $u(i)$ is the utility from exogenous am
 \[
 	Q(i) = \left[\int_J q(j,i)^{\frac{ \sigma - 1}{\sigma}}~ dj\right]^{\frac{\sigma}{\sigma-1}},
 \]
-We assume that worker location prefrences $\epsilon^h(i)$ are independent across workers and locations, and have a Type II Extreme Value distribution,
+We assume that worker location prefrences $\epsilon(i)$ are independent across workers and locations, and have a Type II Extreme Value distribution,
 \[
     \Pr(\epsilon(i) \leq x) = \exp(-x^{-\theta})
 \]
@@ -212,8 +212,7 @@ Using the properties of the Type-II extreme value distribution, we can character
     \begin{equation*}
         \frac{\frac{w_H(i)}{w_L(i)}}{\frac{n_H(i)}{n_L(i)}^\frac{1}{\theta}} = \frac{\frac{w_H(j)}{w_L(j)}}{\frac{n_H(j)}{n_L(j)}^\frac{1}{\theta}}
     \end{equation*}
-    A higher ratio of skilled workers to unskilled workers implies a higher skill premium in wages.}
-    
+    A higher ratio of skilled workers to unskilled workers implies a higher skill premium in wages.  In the data, the college wage premium and college population share are strongly positively correlated.  A simple regression implies a $\theta$ value of $1.5$.}
 
 \begin{eqnarray}
     \frac{n_s(i)}{n_s(j)} = \left(
@@ -231,7 +230,7 @@ The elasticity of relative labor supply to relative wages is:
 \]
 The variance of $\epsilon(i)$ across both workers and locations is decreasing in $\theta$. A large $\theta$ implies that individual unobserved preferences for location are similar across locations. Small changes in wages, prices, or amenities induce large movements of workers.  Another way of putting it is that the supply curve of workers to a location is flat.  When $\theta$ is small, workers have widely varying preferences over locations, so that large changes in wages, prices, or amenities are necessary to induce movement.  That is, the supply curve of workers to a location is steep.
 
-A location with a higher relative wage for skilled workers will attract more workers, but it won't attract all the skilled workers.  Small changes in relative wages will induce small changes in relative populations.  In a model without preference heterogeneity, in equilibrium all populated locations must offer the same utility within skill type.  This means that a location which deviates and offers a slightly higher wage will attract \emph{all} workers.
+A location with a higher relative wage for skilled workers will attract relatively more skilled workers, but it won't attract all the skilled workers.  Small changes in relative wages will induce small changes in relative populations.  In a model without preference heterogeneity, in equilibrium all populated locations must offer the same utility within skill type.  This means that a location which deviates and offers a slightly higher wage will attract \emph{all} workers.
 
 Define the well-being index, denoted by $W_s$, for population of skill $s$:
 \begin{equation*}
@@ -261,7 +260,7 @@ with $\alpha>0$. This agglomeration force changes productivity of both low and h
 Here, $\varphi>0$ governs the skilled bias technological change for high skilled labor.
 By cost minimization, the unit cost of production equals
 \begin{eqnarray}\label{eq:unit_cost}
-	 \frac{c(i)}{A(i)} ,~where~~c(i)=\Big[ \beta_H(i)^{\psi} w_H(i)^{1-\psi} + \beta_L(i)^{\psi} w_L(i)^{1-\psi}\Big]^{\frac{1}{1-\psi}}
+    \frac{c(i)}{A(i)} ,~\mbox{where}~~c(i)=\Big[ \beta_H(i)^{\psi} w_H(i)^{1-\psi} + \beta_L(i)^{\psi} w_L(i)^{1-\psi}\Big]^{\frac{1}{1-\psi}}
 \end{eqnarray}
 The share of spending of producers on high skill workers, denoted by $b(i)$, is given by
 \begin{eqnarray}\label{eq:input_share}
@@ -269,7 +268,7 @@ The share of spending of producers on high skill workers, denoted by $b(i)$, is 
 \end{eqnarray}
 As $\beta_H(i)$ is increasing in the population of skilled workers in a city, so is $b(i)$.
 
-Now the intuition for our result is available.  Suppose a highway is built to a (initially remote) city. As a result of reductions in trade costs, the city will benefit from a lower price index and higher sales abroad, so firms in the city will attract workers of both types.  As the city grows, productivity rises. However, due to agglomoreation advantages, skilled workers become relatively more productive.  Firms will demand relatively more skilled workers.  There will be a disequilibrium as firms demand relatively more skilled workers than the skill share in the population.  Equilibrium is restored by raising skilled wages, which will both attract skilled workers and discourage firms from hiring them.
+Now the intuition for our result is available.  Suppose a new highway is built to a city. As a result of reductions in trade costs, the city will benefit from a lower price index and higher sales abroad, so firms in the city will attract workers of both types.  As the city grows, productivity rises. However, due to agglomoreation advantages, skilled workers become relatively more productive.  Firms will demand relatively more skilled workers.  There will be a disequilibrium as firms demand relatively more skilled workers than the skill share in the population.  Equilibrium is restored by raising skilled wages, which will both attract skilled workers and discourage firms from hiring them.
 
 As mentioned above, markets are perfectly competitive. Let $d(j,i)$ be the trade costs of shipping a good from $j$ to $i$. The price of a good produced in location $j$ and consumed in location $i$ is $p(j,i) = c(j)d(j,i)/A(j)$. 
 
@@ -290,7 +289,7 @@ where $x_s(j,i)$ is given by (\ref{eq:x_s}), and $b(i)$ is given by (\ref{eq:inp
 \vspace{5mm}
 \subsection{Equilibrium Analysis}
 
-Before we derive a system of equations characterizing the equilibrium, we first discuss some of its features.  In particular, we show that without both heterogeneous location preferences and skilled agglomeration, our model would not generate location-specific skill premia.  However, we need no other type of skill-specific preferences, productivity, or mobility to generate this result.
+Before we derive a system of equations characterizing the equilibrium, we first discuss some of its features.  In particular, we show that without both heterogeneous location preferences and skill-specific agglomeration, our model would not generate location-specific skill premia.  However, we need no other type of skill-specific preferences, productivity, or mobility to generate this result.
 
 Perfect competition gives us that the income share of skilled labor equals firm's optimal input share on skilled labor:
 \begin{eqnarray}
@@ -301,7 +300,7 @@ With some algebra, and substituting from (\ref{eq:agglom_specific}), we get:
     \frac{n_H(i)}{n_L(i)} = \left(\frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)}\right)^\psi \left(\frac{w_H(i)}{w_L(i)}\right)^{-\psi} n_H(i)^{\varphi \psi }
 \end{eqnarray}
 
-Using equation (\ref{eq:indiff}), the supply side of labor markets imply:\footnote{As far as we are aware, other models of inequality in the literature assume fundamental differences in preferences between skilled and unskilled workers.  To derive \eqref{eq:labor_supply} we are using the fact that skilled and unskilled workers face the same amenities, as well as the same prices.}
+Using equation (\ref{eq:indiff}), the supply side of labor markets imply:\footnote{As far as we are aware, other models of inequality in the literature assume fundamental differences in preferences between skilled and unskilled workers.  To derive \eqref{eq:labor_supply} we are using the fact that skilled and unskilled workers value amenities in the same way, and that they face the same prices.}
 \begin{eqnarray}\label{eq:labor_supply}
     \frac{n_H(i)}{n_L(i)} = \frac{N_H}{N_L} \left(\frac{W_H}{W_L} \right)^{-\theta}
     \left( \frac{w_H(i)}{w_L(i)}\right)^{\theta}
@@ -310,21 +309,19 @@ Labor markets clear when skill premia simultaneously satisfy the pairs of demand
 \begin{eqnarray}\label{eq:labor_demand_supply}
     \frac{w_H(i)}{w_L(i)} = \left(\frac{W_H}{W_L}\right)^{\frac{\theta}{\theta + \psi}}\left(\frac{N_H}{N_L}\right)^{\frac{-1}{\theta + \psi}} \left(\frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)}\right)^{\frac{\psi}{\theta + \psi}} n_H(i)^{\frac{\varphi \psi}{\theta + \psi}}
 \end{eqnarray}
-Suppose we were to shut down preference heterogeneity, $\theta \rightarrow \infty$.  From \eqref{eq:labor_demand_supply} we see that the skill premium will be constant across locations (and, surprise, proportional to ex-ante expected welfare).  On the other hand, suppose there is no agglomeration for skilled workers, $\varphi = 0$.  Then the skill premium can vary between destinations only due to exogenous differences in returns to skilled and unskilled labor.  In order to have equilibria with (endogenously) varying skill premia, we need \emph{both} $\theta$ to be finite and $\varphi >0$. In words, we need both variance in unobserved location preferences and the agglomeration force for skilled workers.  
+Suppose we were to shut down preference heterogeneity, $\theta \rightarrow \infty$.  From \eqref{eq:labor_demand_supply} we see that the skill premium will be constant across locations (and, surprise, proportional to ex-ante expected welfare).  On the other hand, suppose there is no agglomeration for skilled workers, $\varphi = 0$.  Then the skill premium can vary between destinations only due to exogenous differences in returns to skilled and unskilled labor.  In order to have equilibria with (endogenously) varying skill premia, we need \emph{both} $\theta$ to be finite and $\varphi >0$. In words, we need both variance in unobserved location preferences and the agglomeration force for skilled workers.  Large cities demand more skilled workers due to agglomeration, but when unobserved location preferences matter skilled workers do not fully arbitrage the a wage increase away. In this respect, our model departs from a standard Rosen-Roback (or Allen-Arkolakis) model by highlighting the interaction of agglomeration and the labor supply elasticity. 
 
-Large cities demand more skilled workers due to agglomeration, but when unobserved location preferences matter skilled workers do not fully arbitrage the wage increase away. In this respect, our model departs from a standard Rosen-Roback (or Allen-Arkolakis) model by highlighting the interaction of agglomeration and the labor supply elasticity. 
-
-Moreover, by plugging equilibrium skill premium from (\ref{eq:labor_demand_supply}) into relative labor supply (\ref{eq:labor_supply}), distribution of low skilled labor can be written as a function of distribution of high skilled labor,
+Next we show that the distribution of workers across space has a real effect on welfare inequality.  Plugging equilibrium skill premium from (\ref{eq:labor_demand_supply}) into relative labor supply (\ref{eq:labor_supply}), distribution of low skilled labor can be written as a function of distribution of high skilled labor,
 \begin{eqnarray}\label{eq:labor_demand_supply_2}
 n_L(i) = \Big( \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)} \Big)^{\frac{-\theta\psi}{\theta+\psi}} 
 \Big( \frac{W_H}{W_L} \Big)^{\frac{\theta\psi}{\theta+\psi}}
 \Big( \frac{N_H}{N_L} \Big)^{\frac{-\psi}{\theta+\psi}}
 \Big( n_H(i) \Big)^{\frac{\theta(1-\psi\varphi)+\psi}{\theta+\psi}}
 \end{eqnarray}
-Define $\rho_H(i) = n_H(i)/N_H$ as the density of high skill labor. Equation (\ref{eq:labor_demand_supply_2}) and $ N_L = \int_J n_L(i)~di $ pin down the relative average well-being of high- to low-skilled labor, $W_H/W_L$, as a function of $\rho_H(i)$,
+Define $\rho_H(i) = n_H(i)/N_H$ as the density of high skill labor. Equation (\ref{eq:labor_demand_supply_2}) and $ N_L = \int_J n_L(i)~di $ pin down the relative average well-being of skilled and unskilled workers, $W_H/W_L$, as a function of $\rho_H(i)$,
 \begin{eqnarray}\label{eq:WHtoL}
 \frac{W_H}{W_L} & = &
-\underbrace{~~\Big(\frac{N_H}{N_L}\Big)^{\frac{-1}{\psi}}~~}_{\mbox{aggergate scarcity}} \times \underbrace{~~(N_H)^{\varphi}~~}_{\mbox{aggregate agglom.}} \times \nonumber \\
+\underbrace{~~\Big(\frac{N_H}{N_L}\Big)^{-\frac{1}{\psi}}~~}_{\mbox{aggergate scarcity}} \times \underbrace{~~(N_H)^{\varphi}~~}_{\mbox{aggregate agglom.}} \times \nonumber \\
 &  &
 \underbrace{\Bigg[ \int_J \Big( \frac{\bar{\beta}_H(i)}{\bar{\beta}_L(i)} \Big)^{\frac{-\theta\psi}{\theta+\psi}} \Big( \rho_H(i) \Big)^{\frac{\theta(1-\varphi)+\psi}{\theta+\psi}}~di \Bigg]^{-\frac{\theta+\psi}{\theta\psi}}}_{\mbox{distributional effect}} 
 \end{eqnarray}
@@ -406,7 +403,7 @@ The experiment we will run is to improve the quality of the mountain road leadin
 
 The experiment is to do comparative statics, gradually reducing the transportation costs between State College and the two other cities, until the transportation costs are symmetric as well.  At each level of transportation cost, we solve the model.
 
-In Figure \ref{fig:sim_res}, we present the results of our simulation.  We see that lowering transportation costs raises expected welfare for both skill types.  Lower transportation costs mean that goods from State College are cheaper in the other cities, and goods from the other cities are cheaper in State College.  Lowering the transportation costs also increase the population of State College, and increase its relative population of skilled workers.  As predicted, the skilled wage premium also rises in State College, and falls in New York and Chicago.  
+In Figure \ref{fig:sim_res}, we present the results of our simulation.  We see that lowering transportation costs raises expected welfare for both skill types.  Lower transportation costs mean that goods from State College are cheaper in the other cities, and goods from the other cities are cheaper in State College.  Lowering the transportation costs also increase the population of State College, and increase its relative population of skilled workers.  As predicted, the skilled wage premium also rises in State College, and falls in New York and Chicago.
 
 Finally, the relative expected welfare of skilled workers falls.  That is, the decrease in transportation costs benefits unskilled workers more than it benefits skilled workers.  Although the cheaper goods benefit skilled workers, since the population of skilled workers falls in New York and Chicago, skilled workers lose a bit of their agglomeration advantage.  Typically models of inequality and trade predict that skilled workers gain more than unskilled workers, a result that is reversed in our model which allows workers to move between cities.
 
@@ -441,7 +438,7 @@ Finally, the relative expected welfare of skilled workers falls.  That is, the d
 
 We find that remote cities have both a relatively low college wage premium, and a relatively low college educated population share.  This result holds even after controlling for city size.  The stylized facts motivate our development of a spatial equilibrium model.  We show that both heterogenous location preferences among workers and stronger agglomeration forces for skilled workers deliver the moments we find in the data.  In simulations, we find that the model works as expected, and find that reducing the costs of trade benefits unskilled workers more than skilled workers.
 
-Our model is rich enough to estimate using American data.  We are currently in the process of estimating the model.  Once the model is estimated, we will run counterfactuals relating trade costs to changes in the distribution of nominal and real wage inequality.  These results will be added to this working paper when they are available.
+While our model delivers simple intuition, it is rich enough to estimate using American data.  We are currently in the process of estimating the model.  Once the model is estimated, we will run counterfactuals relating trade costs to changes in the distribution of nominal and real wage inequality.  These results will be added to this working paper when they are available.
 
 % \begin{figure}[!ht]
 % \centering
